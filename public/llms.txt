@@ -1,0 +1,33 @@
+# Fairbanks Advocacia
+
+> Escritório de advocacia em São Paulo (Vila Clementino) especializado em direito de família, inventário e sucessões, planejamento sucessório, direito imobiliário, locações e direito educacional. Fundado e conduzido pela Dra. Cristiane Fairbanks, OAB/SP 274.480, advogada e Doutora pela PUC-SP, com mais de 20 anos de experiência e prioridade para soluções consensuais e extrajudiciais.
+
+Contato: WhatsApp +55 11 99623-2400 · contato@fairbanksadvocacia.com.br · Rua Tenente Gomes Ribeiro, 57, Cj. 25, Vila Clementino, São Paulo, SP · Segunda a sexta, 9h às 18h.
+
+## Páginas principais
+
+- [Início](https://fairbanksadvocacia.com.br/): visão geral do escritório, áreas de atuação e perguntas frequentes.
+- [Sobre a Dra. Cristiane Fairbanks](https://fairbanksadvocacia.com.br/sobre/): formação (Doutora pela PUC-SP, pós-doutoranda em Educação pela Unifesp), comissões da OAB/SP e publicações.
+- [Áreas de atuação](https://fairbanksadvocacia.com.br/servicos/): índice de todas as áreas.
+- [Contato](https://fairbanksadvocacia.com.br/contato/): canais, endereço, horário e formulário.
+
+## Áreas de atuação (uma página por serviço, com FAQ)
+
+- [Direito de Família](https://fairbanksadvocacia.com.br/servicos/direito-de-familia/)
+- [Casamento, União Estável, Regime de Bens e Pacto Antenupcial](https://fairbanksadvocacia.com.br/servicos/casamento-uniao-estavel-regime-de-bens-pacto-antenupcial/)
+- [Divórcio e Partilha](https://fairbanksadvocacia.com.br/servicos/divorcio-e-partilha/)
+- [Guarda e Convivência Parental](https://fairbanksadvocacia.com.br/servicos/guarda-e-convivencia-parental/)
+- [Pensão Alimentícia](https://fairbanksadvocacia.com.br/servicos/pensao-alimenticia/)
+- [Alienação Parental e Abandono Afetivo](https://fairbanksadvocacia.com.br/servicos/alienacao-parental-e-abandono-afetivo/)
+- [Direito dos Animais e Guarda de Pets](https://fairbanksadvocacia.com.br/servicos/direito-dos-animais-e-guarda-pet/)
+- [Inventário e Sucessões](https://fairbanksadvocacia.com.br/servicos/inventario-e-sucessoes/)
+- [Planejamento Sucessório e Testamento](https://fairbanksadvocacia.com.br/servicos/planejamento-sucessorio/)
+- [Direito Imobiliário](https://fairbanksadvocacia.com.br/servicos/direito-imobiliario/)
+- [Locação de Imóveis](https://fairbanksadvocacia.com.br/servicos/locacao-de-imoveis/)
+- [Direito Educacional](https://fairbanksadvocacia.com.br/servicos/direito-educacional/)
+
+## Opcional
+
+- [Sitemap](https://fairbanksadvocacia.com.br/sitemap.xml)
+- [Instagram](https://www.instagram.com/crisfairbanks_adv/)
+- [Currículo Lattes da Dra. Cristiane Fairbanks](http://lattes.cnpq.br/4495819531624621)

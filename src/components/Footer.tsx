@@ -1,0 +1,100 @@
+import Link from "next/link";
+import { Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import { InstagramIcon as Instagram } from "@/components/InstagramIcon";
+import { Logo } from "@/components/Logo";
+import { services } from "@/data/services";
+import { nav, site, whatsappLink } from "@/lib/site";
+
+export function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="bg-plum-950 text-white/80">
+      <div className="container-site grid gap-12 py-16 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <Logo variant="white" className="w-48" />
+          <p className="mt-5 max-w-sm text-pretty text-sm leading-relaxed text-white/70">
+            Advocacia estratégica para família, sucessões, patrimônio, relações imobiliárias e
+            demandas educacionais. {site.founder.honorific}, {site.founder.oab}.
+          </p>
+          <a
+            href={site.founder.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-200"
+          >
+            <Instagram className="size-4" aria-hidden />
+            {site.founder.instagramHandle}
+          </a>
+        </div>
+
+        <div className="lg:col-span-3">
+          <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
+            Áreas de atuação
+          </h2>
+          <ul className="mt-4 space-y-2 text-sm">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/servicos/${s.slug}/`} className="hover:text-white hover:underline">
+                  {s.shortTitle}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-2">
+          <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
+            Navegação
+          </h2>
+          <ul className="mt-4 space-y-2 text-sm">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-white hover:underline">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3">
+          <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
+            Contato
+          </h2>
+          <address className="mt-4 space-y-3 text-sm not-italic">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:text-white">
+              <MessageCircle className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
+              <span>WhatsApp {site.contact.phoneDisplay}</span>
+            </a>
+            <a href={`mailto:${site.contact.email}`} className="flex items-start gap-3 hover:text-white">
+              <Mail className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
+              <span>{site.contact.email}</span>
+            </a>
+            <p className="flex items-start gap-3">
+              <Clock className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
+              <span>{site.contact.hours}</span>
+            </p>
+            <a href={site.address.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:text-white">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
+              <span>
+                {site.address.street}
+                <br />
+                {site.address.neighborhood}, {site.address.city}, {site.address.region}
+              </span>
+            </a>
+          </address>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="container-site flex flex-col gap-2 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {year} {site.name}. Todos os direitos reservados.
+          </p>
+          <p>
+            {site.founder.honorific} · {site.founder.oab}
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

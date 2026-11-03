@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fairbanks Advocacia: site institucional
 
-## Getting Started
+Site estático da **Fairbanks Advocacia** (Dra. Cristiane Fairbanks, OAB/SP 274.480), construído com **Next.js 16 (App Router, export estático)**, **React 19** e **Tailwind CSS 4**.
 
-First, run the development server:
+## Páginas
+
+| Rota | Conteúdo |
+| --- | --- |
+| `/` | Home: hero, 12 áreas de atuação, fundadora, método de atendimento, imprensa, FAQ, CTA |
+| `/sobre/` | Perfil da Dra. Cristiane Fairbanks, comissões da OAB/SP, publicações |
+| `/servicos/` | Índice das áreas de atuação agrupadas por categoria |
+| `/servicos/<slug>/` | Uma página por área (12), com resposta direta, seções em formato pergunta, tabela/listas e FAQ |
+| `/contato/` | Canais, endereço, horário, formulário (WhatsApp/e-mail) e mapa |
+
+Arquivos de indexação gerados automaticamente: `sitemap.xml`, `robots.txt`, `manifest.webmanifest`, `opengraph-image`, `llms.txt`, `humans.txt`.
+
+## Rodando localmente
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local   # ajuste a URL pública e, se quiser, GA4 / Search Console
+pnpm dev                     # http://localhost:3000
+pnpm build                   # gera a pasta out/ (site estático)
+npx serve out                # testa o build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O build gera HTML estático em `out/`. Pode ser publicado em qualquer hospedagem estática
+(Cloudflare Pages, Vercel, Netlify, GitHub Pages, servidor Nginx/Apache):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Comando de build:** `pnpm build`
+- **Diretório de saída:** `out`
+- **Variáveis:** `NEXT_PUBLIC_SITE_URL=https://fairbanksadvocacia.com.br`
 
-## Learn More
+Como as URLs usam barra final (`trailingSlash: true`), configure a hospedagem para servir
+`pasta/index.html` (padrão em todas as citadas).
 
-To learn more about Next.js, take a look at the following resources:
+## Onde editar o conteúdo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/lib/site.ts`: nome, telefone, WhatsApp, e-mail, endereço, horário, redes.
+- `src/data/services.ts`: as 12 áreas de atuação (título, meta tags, texto, FAQ, áreas relacionadas).
+- `src/data/press.ts`: itens de imprensa e publicações.
+- `src/app/page.tsx`, `src/app/sobre/page.tsx`, `src/app/contato/page.tsx`: textos das páginas fixas.
+- `public/brand/`: logos (SVG) nas variantes ameixa, branca e monograma.
+- `public/images/`: fotos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Documentação
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [`docs/SEO.md`](docs/SEO.md): o que foi implementado de SEO/AEO/GEO e checklist de indexação (Search Console, Bing, GA4).
+- [`docs/DESIGN.md`](docs/DESIGN.md): identidade visual (cores, tipografia, componentes).

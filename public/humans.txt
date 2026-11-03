@@ -1,0 +1,8 @@
+/* SITE */
+Fairbanks Advocacia
+Dra. Cristiane Fairbanks, OAB/SP 274.480
+São Paulo, SP, Brasil
+
+/* TECNOLOGIA */
+Next.js, React, Tailwind CSS
+Fontes: Fraunces e Inter
