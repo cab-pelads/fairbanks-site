@@ -10,7 +10,7 @@ export function BlogPreview() {
     .slice(0, 3);
   if (posts.length === 0) return null;
   return (
-    <section aria-labelledby="blog-title" className="bg-ivory">
+    <section aria-labelledby="blog-title" className="bg-sand">
       <div className="container-site py-20">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading

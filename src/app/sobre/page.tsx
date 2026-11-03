@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ExternalLink, Users, Heart, Scale, Shield } from "lucide-react";
 import { InstagramIcon as Instagram } from "@/components/InstagramIcon";
 import { ButtonLink } from "@/components/Button";
-import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -75,13 +74,13 @@ export default function SobrePage() {
         eyebrow={`A fundadora · ${site.founder.oab}`}
         title="Dra. Cristiane Fairbanks"
         lead={
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
             Advogada e Doutora pela Pontifícia Universidade Católica de São Paulo (PUC-SP), dedica-se à advocacia cível de família há mais de 20 anos, procurando sempre a via da mediação entre ex-cônjuges e genitores.
           </p>
         }
         aside={
           <div className="relative mx-auto max-w-sm">
-            <div className="absolute -right-3 -bottom-3 h-full w-full rounded-3xl border border-gold-500/70" aria-hidden />
+            <div className="absolute -right-3 -bottom-3 h-full w-full rounded-3xl bg-plum-900" aria-hidden />
             <Image
               src="/images/cristiane-fairbanks-retrato.webp"
               alt="Retrato da Dra. Cristiane Fairbanks, advogada, de blazer preto e óculos, sentada em sofá de couro"
@@ -102,14 +101,14 @@ export default function SobrePage() {
             ["Pós-doutorado", "Unifesp"],
           ].map(([k, v]) => (
             <div key={k}>
-              <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-white/55">{k}</dt>
-              <dd className="mt-1 font-display text-2xl font-medium text-gold-400">{v}</dd>
+              <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">{k}</dt>
+              <dd className="mt-1 font-display text-xl font-medium text-plum-900">{v}</dd>
             </div>
           ))}
         </dl>
       </PageHeader>
 
-      <section className="bg-ivory">
+      <section className="bg-white">
         <div className="container-site grid gap-12 py-20 lg:grid-cols-12">
           <div className="prose-fb max-w-none lg:col-span-8">
             <p>
@@ -187,31 +186,29 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section aria-labelledby="traj-title" className="bg-plum-900 text-white">
+      <section aria-labelledby="traj-title" className="bg-white">
         <div className="container-site py-20">
-          <SectionHeading eyebrow="Trajetória" title={<span id="traj-title">Formação, advocacia e pesquisa</span>} tone="light" />
+          <SectionHeading eyebrow="Trajetória" title={<span id="traj-title">Formação, advocacia e pesquisa</span>} />
           <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {trajectory.map((t) => (
-              <li key={t.title} className="border-t border-gold-500/60 pt-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">{t.label}</p>
-                <h3 className="mt-2 font-display text-xl font-medium">{t.title}</h3>
-                <p className="mt-2 text-pretty text-sm leading-relaxed text-white/75">{t.text}</p>
+              <li key={t.title} className="border-t-2 border-gold-500 pt-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">{t.label}</p>
+                <h3 className="mt-2 text-lg font-semibold text-plum-900">{t.title}</h3>
+                <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{t.text}</p>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section aria-labelledby="values-title" className="bg-white">
+      <section aria-labelledby="values-title" className="bg-ivory">
         <div className="container-site py-20">
           <SectionHeading eyebrow="Como atendemos" title={<span id="values-title">Quatro compromissos com cada cliente</span>} align="center" />
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
-              <li key={v.title} className="rounded-2xl border border-line bg-ivory p-6">
-                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-plum-900 text-gold-400">
-                  <v.icon className="size-5" aria-hidden />
-                </span>
-                <h3 className="mt-5 font-display text-xl font-medium text-plum-900">{v.title}</h3>
+              <li key={v.title} className="border-t-2 border-gold-500 pt-5">
+                <v.icon className="size-5 text-plum-800" aria-hidden />
+                <h3 className="mt-4 text-lg font-semibold text-plum-900">{v.title}</h3>
                 <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{v.text}</p>
               </li>
             ))}
@@ -242,7 +239,6 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <CtaSection />
     </>
   );
 }

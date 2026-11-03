@@ -4,14 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Clock, ExternalLink, MessageCircle, Share2 } from "lucide-react";
 import { ButtonLink } from "@/components/Button";
-import { CtaSection } from "@/components/CtaSection";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { PostCard } from "@/components/PostCard";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { getService } from "@/data/services";
-import { formatDate, getAllPosts, getPost, postTypes } from "@/lib/blog";
+import { coverFor, formatDate, getAllPosts, getPost, postTypes } from "@/lib/blog";
 import { breadcrumbSchema, faqSchema, graph, ORG_ID, PERSON_ID, webPageSchema } from "@/lib/schema";
 import { absoluteUrl, site, whatsappLink } from "@/lib/site";
 
@@ -68,7 +67,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
     <article>
       <JsonLd
         data={graph(
-          webPageSchema({ path, name: post.title, description: post.description, primaryImage: post.cover }),
+          webPageSchema({ path, name: post.title, description: post.description, primaryImage: post.cover ?? coverFor(post.areas) }),
           {
             "@type": schemaType,
             "@id": `${absoluteUrl(path)}#article`,
@@ -83,7 +82,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             keywords: post.tags.join(", "),
             author: { "@id": PERSON_ID },
             publisher: { "@id": ORG_ID },
-            ...(post.cover ? { image: absoluteUrl(post.cover) } : {}),
+            image: absoluteUrl(post.cover ?? coverFor(post.areas)),
             ...(post.areas.length ? { about: areas.map((a) => ({ "@type": "Thing", name: a!.shortTitle, url: absoluteUrl(`/servicos/${a!.slug}/`) })) } : {}),
             ...(post.sourceUrl ? { citation: post.sourceUrl } : {}),
           },
@@ -96,16 +95,16 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         crumbs={crumbs}
         eyebrow={post.outlet ? `${type.label} · ${post.outlet}` : type.label}
         title={post.title}
-        lead={<p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">{post.description}</p>}
+        lead={<p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted">{post.description}</p>}
       >
-        <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/70">
+        <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
           <span>
-            Escrito por <span className="font-semibold text-white">{post.author}</span>
+            Escrito por <span className="font-semibold text-plum-900">{post.author}</span>
           </span>
           <time dateTime={post.date}>{formatDate(post.date)}</time>
           {post.updated && <span>Atualizado em {formatDate(post.updated)}</span>}
           <span className="inline-flex items-center gap-1">
-            <Clock className="size-4 text-gold-400" aria-hidden />
+            <Clock className="size-4 text-gold-500" aria-hidden />
             {post.readingMinutes} min de leitura
           </span>
         </p>
@@ -114,12 +113,10 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
       <div className="bg-white">
         <div className="container-site grid gap-12 py-14 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            {post.cover && (
-              <figure className="mb-10 overflow-hidden rounded-3xl border border-line">
-                <Image src={post.cover} alt={post.coverAlt ?? ""} width={1200} height={675} priority sizes="(min-width: 1024px) 66vw, 100vw" className="w-full object-cover" />
-                {post.coverAlt && <figcaption className="px-4 py-2 text-xs text-muted">{post.coverAlt}</figcaption>}
-              </figure>
-            )}
+            <figure className="mb-10 overflow-hidden rounded-3xl border border-line">
+              <Image src={post.cover ?? coverFor(post.areas)} alt={post.coverAlt ?? ""} width={1200} height={675} priority sizes="(min-width: 1024px) 66vw, 100vw" className="aspect-[2/1] w-full object-cover" />
+              {post.coverAlt && <figcaption className="px-4 py-2 text-xs text-muted">{post.coverAlt}</figcaption>}
+            </figure>
             <div className="prose-fb max-w-none" dangerouslySetInnerHTML={{ __html: post.html }} />
 
             {post.sourceUrl && (
@@ -209,7 +206,6 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         </section>
       )}
 
-      <CtaSection />
     </article>
   );
 }

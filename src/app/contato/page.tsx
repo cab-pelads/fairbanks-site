@@ -33,12 +33,12 @@ export default function ContatoPage() {
         eyebrow="Contato"
         title="Converse sobre o seu caso com clareza"
         lead={
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
             Um primeiro contato para compreender a situação, orientar os próximos passos e indicar a estratégia jurídica mais adequada. Atendimento presencial na Vila Clementino, em São Paulo, ou por videoconferência.
           </p>
         }
       />
-      <section className="bg-ivory">
+      <section className="bg-white">
         <div className="container-site grid gap-12 py-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 className="font-display text-2xl font-medium text-plum-900">Canais de atendimento</h2>
@@ -114,7 +114,7 @@ export default function ContatoPage() {
           </div>
         </div>
       </section>
-      <section aria-label="Mapa de localização" className="bg-white">
+      <section aria-label="Mapa de localização" className="bg-ivory">
         <div className="container-site py-16">
           <h2 className="font-display text-2xl font-medium text-plum-900">Como chegar</h2>
           <p className="mt-2 max-w-2xl text-pretty text-muted">

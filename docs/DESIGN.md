@@ -22,22 +22,8 @@ Regra: um acento (dourado) por seção; sem gradientes além do logo original.
 
 ## Ritmo de seções
 
-O vinho é a cor dominante: header, hero da home, cabeçalho de todas as páginas internas (`PageHeader`), faixa "Como funciona", trajetória no Sobre, bloco "Quando procurar" nas áreas, CTA e rodapé. Entre elas, fundos `ivory`, `white` e `sand` alternam para dar respiro. Nos fundos escuros, títulos em branco, eyebrows e números em `gold-400`, botão principal `gold`.
+O vinho é acento, não fundo dominante. Fundos claros (`ivory`, `white`, `sand`) ocupam a maior parte da página. Blocos escuros: apenas o bloco da fundadora na home, o card lateral de contato nas páginas de área e de post, a lista "para quem é o escritório" no Sobre, a chamada para contato fundida ao rodapé e o rodapé. Header claro com logo vinho. Cabeçalho das páginas internas (`PageHeader`) claro, com breadcrumbs, título em Fraunces e um filete dourado.
 
-## Tipografia
+## Tipografia por nível
 
-- **Fraunces** (variável, eixo `opsz` em 144): títulos `h1`-`h3`, números das etapas, citações.
-- **Inter** (variável): corpo, navegação, botões, rótulos.
-- Eyebrows: Inter 12px, caixa alta, `tracking-[0.18em]`, dourado.
-
-## Logo
-
-- `public/brand/logo.svg`: ameixa com o gradiente original (fundo claro).
-- `public/brand/logo-branco.svg`: texto branco e monograma dourado (fundo escuro).
-- `public/brand/monograma.svg` / `monograma-dourado.svg`: só o "F" (favicon, marca d'água no CTA).
-
-## Componentes
-
-`src/components/`: `Header` (fixo, com menu mobile), `Footer`, `ButtonLink` (primary, gold, outline, outline-light, ghost), `SectionHeading`, `ServiceCard`, `Faq` (`<details>` nativo), `Breadcrumbs`, `CtaSection`, `PressSection`, `ProcessSteps`, `FounderSection`, `ContactForm`, `WhatsAppFloat`, `JsonLd`.
-
-Raio padrão: cards `rounded-2xl`, fotos `rounded-3xl`, botões `rounded-full`.
+Fraunces só em `h1`, `h2` e números de etapa. Títulos de card, `h3` e rótulos em Inter semibold. Isso evita o aspecto fino da serifa em tamanhos pequenos.

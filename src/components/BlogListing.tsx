@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Rss } from "lucide-react";
 import { PostCard } from "@/components/PostCard";
-import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { getAllPosts, getPostsByType, postTypes, type PostType } from "@/lib/blog";
@@ -44,7 +43,7 @@ export function BlogListing({ type }: { type?: PostType }) {
         crumbs={crumbs}
         eyebrow="Conteúdo"
         title={type ? postTypes[type].plural : "Artigos, notícias e imprensa"}
-        lead={<p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">{description}</p>}
+        lead={<p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted">{description}</p>}
       >
         <nav aria-label="Tipo de publicação" className="mt-8 flex flex-wrap gap-2">
           {tabs.map((tab) => {
@@ -56,15 +55,15 @@ export function BlogListing({ type }: { type?: PostType }) {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "rounded-full border px-4 py-2 text-sm font-semibold transition-colors",
-                  active ? "border-gold-400 bg-gold-500 text-plum-950" : "border-white/25 text-white/85 hover:bg-white/10",
+                  active ? "border-plum-900 bg-plum-900 text-white" : "border-line bg-white text-plum-900 hover:border-plum-900/40",
                 )}
               >
                 {tab.label}
               </Link>
             );
           })}
-          <a href="/feed.xml" className="ml-auto inline-flex items-center gap-1.5 self-center text-sm text-white/70 hover:text-white">
-            <Rss className="size-4 text-gold-400" aria-hidden /> RSS
+          <a href="/feed.xml" className="ml-auto inline-flex items-center gap-1.5 self-center text-sm text-muted hover:text-plum-900">
+            <Rss className="size-4 text-gold-500" aria-hidden /> RSS
           </a>
         </nav>
       </PageHeader>
@@ -78,7 +77,7 @@ export function BlogListing({ type }: { type?: PostType }) {
               {featured.length > 0 && (
                 <div className="mb-10">
                   <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">Em destaque</p>
-                  <PostCard post={featured[0]} className="lg:grid lg:grid-cols-2 [&>a]:lg:aspect-auto [&>a]:lg:min-h-80" />
+                  <PostCard post={featured[0]} className="lg:grid lg:grid-cols-2 [&>a]:lg:aspect-auto [&>a]:lg:min-h-72" />
                 </div>
               )}
               <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -92,7 +91,6 @@ export function BlogListing({ type }: { type?: PostType }) {
           )}
         </div>
       </section>
-      <CtaSection />
     </>
   );
 }

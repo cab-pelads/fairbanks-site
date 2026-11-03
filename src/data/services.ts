@@ -761,7 +761,7 @@ export const services: Service[] = [
     ],
     lead: [
       "O inventário é o procedimento que apura os bens, as dívidas e os herdeiros de uma pessoa falecida e transfere o patrimônio a quem tem direito. Ele deve ser aberto em até 60 dias após o falecimento, conforme o artigo 611 do Código de Processo Civil, e pode ser feito em cartório, quando os herdeiros estão de acordo, ou pela via judicial, quando há conflito.",
-      "A Fairbanks Advocacia é especializada em inventário extrajudicial e conduz o procedimento em prazo curto, para que o patrimônio chegue às mãos dos herdeiros com segurança jurídica. Quando o litígio é inevitável, atuamos no inventário judicial com a mesma dedicação.",
+      "A Fairbanks Advocacia atua com foco em inventário extrajudicial e conduz o procedimento em prazo curto, para que o patrimônio chegue às mãos dos herdeiros com segurança jurídica. Quando o litígio é inevitável, atuamos no inventário judicial com a mesma dedicação.",
     ],
     sections: [
       {

@@ -1,28 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock } from "lucide-react";
-import { formatDate, postTypes, type Post } from "@/lib/blog";
-import { Monogram } from "@/components/Logo";
+import { coverFor, formatDate, postTypes, type Post } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 export function PostCard({ post, className, compact }: { post: Post; className?: string; compact?: boolean }) {
   const type = postTypes[post.type];
   return (
     <article className={cn("group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white transition-colors hover:border-gold-400", className)}>
-      <Link href={`/blog/${post.slug}/`} className="relative block aspect-[16/9] overflow-hidden bg-plum-900">
-        {post.cover ? (
-          <Image
-            src={post.cover}
-            alt={post.coverAlt ?? post.title}
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover"
-          />
-        ) : (
-          <span className="flex h-full items-center justify-center">
-            <Monogram className="w-20 opacity-80" />
-          </span>
-        )}
+      <Link href={`/blog/${post.slug}/`} className="relative block aspect-[16/9] overflow-hidden bg-sand" tabIndex={-1} aria-hidden>
+        <Image
+          src={post.cover ?? coverFor(post.areas)}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
       </Link>
       <div className="flex flex-1 flex-col p-5">
         <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-600">
@@ -32,7 +25,7 @@ export function PostCard({ post, className, compact }: { post: Post; className?:
             {formatDate(post.date)}
           </time>
         </p>
-        <h3 className={cn("mt-2 text-balance font-display font-medium leading-snug text-plum-900", compact ? "text-lg" : "text-xl")}>
+        <h3 className={cn("mt-2 text-balance font-semibold leading-snug text-plum-900", compact ? "text-base" : "text-lg")}>
           <Link href={`/blog/${post.slug}/`} className="hover:underline decoration-gold-400 underline-offset-4">
             {post.title}
           </Link>

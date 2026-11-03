@@ -7,7 +7,7 @@ export const site = {
   legalName: "Fairbanks Advocacia",
   tagline: "Advocacia de família, sucessões e patrimônio em São Paulo",
   description:
-    "Escritório de advocacia em São Paulo especializado em direito de família, inventário e sucessões, planejamento sucessório, direito imobiliário e direito educacional. Atendimento da Dra. Cristiane Fairbanks, OAB/SP 274.480, com mais de 20 anos de experiência.",
+    "Escritório de advocacia em São Paulo com atuação em direito de família, inventário e sucessões, planejamento sucessório, direito imobiliário e direito educacional. Atendimento da Dra. Cristiane Fairbanks, OAB/SP 274.480, com mais de 20 anos de experiência.",
   founder: {
     name: "Cristiane Fairbanks",
     honorific: "Dra. Cristiane Fairbanks",

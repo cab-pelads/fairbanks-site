@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -37,7 +36,7 @@ export default function ServicosPage() {
         eyebrow="Áreas de atuação"
         title="Advocacia para família, sucessões, patrimônio e educação"
         lead={
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted">
             Há mais de 20 anos a Fairbanks Advocacia atua em direito de família e sucessões, cível e consumidor, e também em direito educacional. Cada área abaixo tem uma página própria, com explicações diretas, sinais de que é hora de procurar a advogada e respostas às perguntas mais frequentes.
           </p>
         }
@@ -55,7 +54,7 @@ export default function ServicosPage() {
       />
 
       {order.map((cat, i) => (
-        <section key={cat} aria-labelledby={`cat-${cat}`} className={i % 2 === 0 ? "bg-ivory" : "bg-white"}>
+        <section key={cat} aria-labelledby={`cat-${cat}`} className={i % 2 === 0 ? "bg-white" : "bg-ivory"}>
           <div className="container-site grid gap-8 py-16 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">{String(i + 1).padStart(2, "0")}</p>
@@ -77,7 +76,6 @@ export default function ServicosPage() {
         </section>
       ))}
 
-      <CtaSection />
     </>
   );
 }

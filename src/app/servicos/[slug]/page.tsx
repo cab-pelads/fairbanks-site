@@ -6,7 +6,6 @@ import { PageHeader } from "@/components/PageHeader";
 import { PostCard } from "@/components/PostCard";
 import { getPostsByArea } from "@/lib/blog";
 import { ButtonLink } from "@/components/Button";
-import { CtaSection } from "@/components/CtaSection";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceIcon } from "@/components/ServiceIcon";
@@ -72,7 +71,7 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
         lead={
           <>
             {service.lead.map((p, i) => (
-              <p key={i} className={i === 0 ? "mt-6 text-pretty text-lg leading-relaxed text-white/85 sm:text-xl" : "mt-4 text-pretty text-lg leading-relaxed text-white/75"}>
+              <p key={i} className={i === 0 ? "mt-6 text-pretty text-lg leading-relaxed text-ink/85 sm:text-xl" : "mt-4 text-pretty text-lg leading-relaxed text-ink/75"}>
                 {p}
               </p>
             ))}
@@ -80,11 +79,11 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
         }
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href={whatsappLink(message)} variant="gold">
+          <ButtonLink href={whatsappLink(message)} variant="primary">
             <MessageCircle className="size-4" aria-hidden />
             Agendar consulta
           </ButtonLink>
-          <ButtonLink href="#faq" variant="outline-light">
+          <ButtonLink href="#faq" variant="outline">
             Perguntas frequentes
           </ButtonLink>
         </div>
@@ -168,20 +167,20 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
               </section>
             ))}
 
-            <section id="quando-procurar" className="not-prose scroll-mt-24 rounded-2xl bg-plum-900 p-6 text-white sm:p-8">
-              <h2 className="font-display text-balance text-2xl font-medium sm:text-3xl">Quando procurar a advogada?</h2>
-              <p className="mt-2 text-sm text-white/70">Sinais de que é hora de uma consulta sobre {service.shortTitle.toLowerCase()}.</p>
+            <section id="quando-procurar" className="not-prose scroll-mt-24 rounded-2xl bg-sand p-6 sm:p-8">
+              <h2 className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">Quando procurar a advogada?</h2>
+              <p className="mt-2 text-sm text-muted">Sinais de que é hora de uma consulta sobre {service.shortTitle.toLowerCase()}.</p>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {service.signals.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-white/90">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-ink/85">
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-gold-600" aria-hidden />
                     {item}
                   </li>
                 ))}
               </ul>
             </section>
 
-            <section id="erros-comuns" className="not-prose scroll-mt-24 rounded-2xl border border-line bg-ivory p-6 sm:p-8">
+            <section id="erros-comuns" className="not-prose scroll-mt-24 rounded-2xl border border-line bg-white p-6 sm:p-8">
               <h2 className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">Erros comuns que vemos nesses casos</h2>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {service.mistakes.map((item) => (
@@ -288,7 +287,6 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
         </section>
       )}
 
-      <CtaSection message={message} />
     </article>
   );
 }
