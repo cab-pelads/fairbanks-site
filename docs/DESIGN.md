@@ -20,6 +20,10 @@ Extraída do site anterior (logo e paleta) com nova tipografia.
 
 Regra: um acento (dourado) por seção; sem gradientes além do logo original.
 
+## Ritmo de seções
+
+O vinho é a cor dominante: header, hero da home, cabeçalho de todas as páginas internas (`PageHeader`), faixa "Como funciona", trajetória no Sobre, bloco "Quando procurar" nas áreas, CTA e rodapé. Entre elas, fundos `ivory`, `white` e `sand` alternam para dar respiro. Nos fundos escuros, títulos em branco, eyebrows e números em `gold-400`, botão principal `gold`.
+
 ## Tipografia
 
 - **Fraunces** (variável, eixo `opsz` em 144): títulos `h1`-`h3`, números das etapas, citações.

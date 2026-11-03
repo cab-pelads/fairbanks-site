@@ -23,6 +23,7 @@
 - Serviços (índice): `CollectionPage`, `ItemList`, `BreadcrumbList`.
 - Cada serviço: `WebPage`, `Service` (provider = escritório), `FAQPage`, `BreadcrumbList`.
 - Contato: `ContactPage`, `BreadcrumbList`.
+- Blog: `CollectionPage` com `hasPart`; cada publicação `BlogPosting` (ou `NewsArticle` para notícias) com `author`, `publisher`, `datePublished`, `dateModified`, `wordCount`, `about` e `FAQPage` quando houver FAQ.
 
 Validar em: https://search.google.com/test/rich-results e https://validator.schema.org/
 
@@ -34,6 +35,7 @@ Validar em: https://search.google.com/test/rich-results e https://validator.sche
 - FAQ por página com schema `FAQPage`.
 - Entidades explícitas: nome, OAB, formação, endereço, cidade, horário.
 - `public/llms.txt` com resumo e índice de URLs para rastreadores de IA.
+- Blog com artigos em formato pergunta-resposta, selo "Escrito por", data e tempo de leitura, e feed RSS (`/feed.xml`).
 - `robots.txt` liberando GPTBot, ClaudeBot, PerplexityBot, Google-Extended etc.
 - Texto sem travessões e sem muletas de IA (checado com grep).
 
@@ -70,6 +72,8 @@ Validar em: https://search.google.com/test/rich-results e https://validator.sche
 8. **Acompanhar**: no Search Console, relatórios "Páginas" (cobertura) e "Desempenho" por consulta; revisar mensalmente as perguntas que geram impressões e incorporá-las às FAQs em `src/data/services.ts`.
 
 ## Dados pendentes de confirmação com o escritório
+
+- **Datas e links das aparições na mídia** (Folha, SINDPESP, Jornal do CA): ver `docs/BLOG.md`.
 
 - **CEP** do endereço (não foi incluído no schema para não publicar dado não confirmado).
 - Coordenadas exatas para `geo` no `LocalBusiness` (opcional).

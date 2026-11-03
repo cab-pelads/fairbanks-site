@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Clock, Mail, MapPin, MessageCircle } from "lucide-react";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { AlertTriangle, ArrowRight, CheckCircle2, Clock, Mail, MapPin, MessageCircle } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
+import { PostCard } from "@/components/PostCard";
+import { getPostsByArea } from "@/lib/blog";
 import { ButtonLink } from "@/components/Button";
 import { CtaSection } from "@/components/CtaSection";
 import { Faq } from "@/components/Faq";
@@ -45,6 +47,7 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
   ];
   const related = service.related.map(getService).filter(Boolean);
   const message = `Olá, gostaria de agendar uma consulta sobre ${service.shortTitle}.`;
+  const posts = getPostsByArea(service.slug, 3);
 
   return (
     <article>
@@ -57,34 +60,35 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
         )}
       />
 
-      <header className="bg-ivory">
-        <div className="container-site pb-12 pt-6">
-          <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-3xl">
-            <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
-              <ServiceIcon name={service.icon} className="size-4" />
-              {categories[service.category].label}
-            </p>
-            <h1 className="font-display text-balance text-4xl font-medium leading-[1.08] text-plum-900 sm:text-5xl">
-              {service.title}
-            </h1>
+      <PageHeader
+        crumbs={crumbs}
+        eyebrow={
+          <>
+            <ServiceIcon name={service.icon} className="size-4" />
+            {categories[service.category].label}
+          </>
+        }
+        title={service.title}
+        lead={
+          <>
             {service.lead.map((p, i) => (
-              <p key={i} className={i === 0 ? "mt-6 text-pretty text-lg leading-relaxed text-ink/85 sm:text-xl" : "mt-4 text-pretty text-lg leading-relaxed text-ink/80"}>
+              <p key={i} className={i === 0 ? "mt-6 text-pretty text-lg leading-relaxed text-white/85 sm:text-xl" : "mt-4 text-pretty text-lg leading-relaxed text-white/75"}>
                 {p}
               </p>
             ))}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={whatsappLink(message)} variant="primary">
-                <MessageCircle className="size-4" aria-hidden />
-                Agendar consulta
-              </ButtonLink>
-              <ButtonLink href="#faq" variant="outline">
-                Perguntas frequentes
-              </ButtonLink>
-            </div>
-          </div>
+          </>
+        }
+      >
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href={whatsappLink(message)} variant="gold">
+            <MessageCircle className="size-4" aria-hidden />
+            Agendar consulta
+          </ButtonLink>
+          <ButtonLink href="#faq" variant="outline-light">
+            Perguntas frequentes
+          </ButtonLink>
         </div>
-      </header>
+      </PageHeader>
 
       <div className="bg-white">
         <div className="container-site grid gap-12 py-16 lg:grid-cols-12">
@@ -99,6 +103,16 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a href="#quando-procurar" className="text-plum-800 hover:text-plum-900 hover:underline">
+                    Quando procurar a advogada?
+                  </a>
+                </li>
+                <li>
+                  <a href="#erros-comuns" className="text-plum-800 hover:text-plum-900 hover:underline">
+                    Erros comuns
+                  </a>
+                </li>
                 <li>
                   <a href="#faq" className="text-plum-800 hover:text-plum-900 hover:underline">
                     Perguntas frequentes
@@ -153,6 +167,31 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
                 )}
               </section>
             ))}
+
+            <section id="quando-procurar" className="not-prose scroll-mt-24 rounded-2xl bg-plum-900 p-6 text-white sm:p-8">
+              <h2 className="font-display text-balance text-2xl font-medium sm:text-3xl">Quando procurar a advogada?</h2>
+              <p className="mt-2 text-sm text-white/70">Sinais de que é hora de uma consulta sobre {service.shortTitle.toLowerCase()}.</p>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signals.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-white/90">
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section id="erros-comuns" className="not-prose scroll-mt-24 rounded-2xl border border-line bg-ivory p-6 sm:p-8">
+              <h2 className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">Erros comuns que vemos nesses casos</h2>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.mistakes.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-ink/85">
+                    <AlertTriangle className="mt-0.5 size-4 shrink-0 text-plum-600" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
 
             <div id="faq" className="scroll-mt-24 pt-6">
               <Faq items={service.faq} title={`Perguntas frequentes sobre ${service.shortTitle.toLowerCase()}`} />
@@ -225,6 +264,29 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
           </aside>
         </div>
       </div>
+
+      {posts.length > 0 && (
+        <section aria-labelledby="posts-title" className="bg-ivory">
+          <div className="container-site py-16">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <h2 id="posts-title" className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">
+                Conteúdo sobre {service.shortTitle.toLowerCase()}
+              </h2>
+              <Link href="/blog/" className="inline-flex items-center gap-1 text-sm font-semibold text-plum-800 hover:text-plum-900">
+                Ver o blog
+                <ArrowRight className="size-4 text-gold-500" aria-hidden />
+              </Link>
+            </div>
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {posts.map((p) => (
+                <li key={p.slug}>
+                  <PostCard post={p} compact />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <CtaSection message={message} />
     </article>

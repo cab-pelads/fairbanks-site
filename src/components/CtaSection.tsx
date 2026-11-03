@@ -13,7 +13,7 @@ export function CtaSection({
   message?: string;
 }) {
   return (
-    <section aria-labelledby="cta-title" className="bg-plum-900 text-white">
+    <section aria-labelledby="cta-title" className="bg-plum-950 text-white">
       <div className="container-site relative overflow-hidden py-20">
         <Monogram className="pointer-events-none absolute -right-10 -top-10 w-64 opacity-[0.07] sm:w-80" />
         <div className="relative max-w-2xl">

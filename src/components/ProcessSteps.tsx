@@ -21,19 +21,20 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section aria-labelledby="process-title" className="bg-ivory">
+    <section aria-labelledby="process-title" className="bg-plum-900 text-white">
       <div className="container-site py-20">
         <SectionHeading
           eyebrow="Como funciona"
           title={<span id="process-title">Um atendimento com método, do primeiro contato à solução</span>}
           text="Direito tratado com estratégia, escuta e presença. Assim conduzimos cada caso."
+          tone="light"
         />
         <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
-            <li key={step.title} className="relative border-t-2 border-gold-500 pt-6">
-              <span className="font-display text-4xl font-medium text-gold-500">0{i + 1}</span>
-              <h3 className="mt-3 font-display text-xl font-medium text-plum-900">{step.title}</h3>
-              <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{step.text}</p>
+            <li key={step.title} className="relative border-t border-gold-500/70 pt-6">
+              <span className="font-display text-4xl font-medium text-gold-400">0{i + 1}</span>
+              <h3 className="mt-3 font-display text-xl font-medium text-white">{step.title}</h3>
+              <p className="mt-2 text-pretty text-sm leading-relaxed text-white/75">{step.text}</p>
             </li>
           ))}
         </ol>

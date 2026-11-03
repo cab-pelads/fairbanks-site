@@ -11,6 +11,9 @@ Site estático da **Fairbanks Advocacia** (Dra. Cristiane Fairbanks, OAB/SP 274.
 | `/servicos/` | Índice das áreas de atuação agrupadas por categoria |
 | `/servicos/<slug>/` | Uma página por área (12), com resposta direta, seções em formato pergunta, tabela/listas e FAQ |
 | `/contato/` | Canais, endereço, horário, formulário (WhatsApp/e-mail) e mapa |
+| `/blog/`, `/blog/artigos/`, `/blog/noticias/`, `/blog/na-midia/` | Blog com filtros por tipo |
+| `/blog/<slug>/` | Uma página por publicação (Markdown em `content/blog/`) |
+| `/feed.xml` | RSS do blog |
 
 Arquivos de indexação gerados automaticamente: `sitemap.xml`, `robots.txt`, `manifest.webmanifest`, `opengraph-image`, `llms.txt`, `humans.txt`.
 
@@ -44,8 +47,10 @@ Como as URLs usam barra final (`trailingSlash: true`), configure a hospedagem pa
 - `src/app/page.tsx`, `src/app/sobre/page.tsx`, `src/app/contato/page.tsx`: textos das páginas fixas.
 - `public/brand/`: logos (SVG) nas variantes ameixa, branca e monograma.
 - `public/images/`: fotos.
+- `content/blog/*.md`: publicações do blog (ou use o PagesCMS, ver `docs/BLOG.md`).
 
 ## Documentação
 
 - [`docs/SEO.md`](docs/SEO.md): o que foi implementado de SEO/AEO/GEO e checklist de indexação (Search Console, Bing, GA4).
 - [`docs/DESIGN.md`](docs/DESIGN.md): identidade visual (cores, tipografia, componentes).
+- [`docs/BLOG.md`](docs/BLOG.md): como publicar artigos, notícias e aparições na mídia, regras editoriais e plano de conteúdo.

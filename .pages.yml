@@ -1,0 +1,198 @@
+# Configuração do PagesCMS para o site da Fairbanks Advocacia
+#
+# ORGANIZAÇÃO:
+# 📝 Blog - Artigos, notícias e aparições na mídia (uma pasta, três tipos)
+#
+# COMO PUBLICAR:
+# 1. Abra https://app.pagescms.org e conecte o repositório cab-pelads/fairbanks-site.
+# 2. Em "📝 Blog - Publicações", clique em "Add entry".
+# 3. Escolha o Tipo (artigo, notícia ou na mídia), preencha título, resumo, data e texto.
+# 4. Salve. O arquivo vai para content/blog/ no Git e o site é republicado automaticamente pela hospedagem.
+# 5. Para não publicar ainda, marque "Rascunho".
+#
+# IMPORTANTE:
+# - O resumo (description) vira a meta description do Google: 150 a 160 caracteres.
+# - Imagens: envie em "Imagem de capa" (JPG/PNG/WebP, 1200x630 px, até 1 MB). Elas ficam em public/media/blog.
+# - Em "Na mídia", informe o veículo e o link da matéria original.
+
+media:
+  input: public/media
+  output: /media
+
+content:
+  - name: blog
+    label: "📝 Blog - Publicações"
+    description: "Artigos, notícias e aparições na mídia. Cada entrada vira uma página em /blog/<slug>/."
+    type: collection
+    path: content/blog
+    filename: "{fields.slug}.md"
+    preview_url: /blog
+    view:
+      fields: [ title, type, date, featured, draft ]
+      primary: title
+      sort: [ date, title ]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+        maxlength: 90
+        description: "Título da publicação. Para artigos, prefira o formato de pergunta. Até 70 caracteres aparecem inteiros no Google."
+        placeholder: "Ex.: Quanto tempo demora um inventário em cartório?"
+
+      - name: slug
+        label: Endereço (slug)
+        type: string
+        required: true
+        pattern:
+          regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          message: "Use apenas letras minúsculas, números e hífens, sem acentos. Ex.: inventario-em-cartorio-prazo"
+        description: "Parte final do endereço da página: fairbanksadvocacia.com.br/blog/<slug>/. Não altere depois de publicado."
+        placeholder: "Ex.: inventario-em-cartorio-prazo"
+
+      - name: type
+        label: Tipo
+        type: select
+        required: true
+        default: artigo
+        description: "artigo = texto próprio explicativo · noticia = novidade jurídica ou do escritório · midia = entrevista ou menção em veículo de imprensa."
+        options:
+          values:
+            - value: artigo
+              label: Artigo
+            - value: noticia
+              label: Notícia
+            - value: midia
+              label: Na mídia
+
+      - name: description
+        label: Resumo
+        type: text
+        required: true
+        maxlength: 170
+        description: "Resumo de 150 a 160 caracteres. Aparece na lista do blog, no Google e nas redes sociais."
+        placeholder: "Ex.: Com os herdeiros de acordo, o inventário em cartório pode ser concluído em poucas semanas. Veja prazos, custos e documentos."
+
+      - name: date
+        label: Data de publicação
+        type: date
+        required: true
+        description: "Data em que o texto foi (ou será) publicado."
+
+      - name: updated
+        label: Última atualização (opcional)
+        type: date
+        description: "Preencha quando revisar um texto antigo. O Google valoriza conteúdo atualizado."
+
+      - name: author
+        label: Autor
+        type: string
+        default: "Dra. Cristiane Fairbanks"
+        description: "Quem assina o texto. Use um nome real."
+
+      - name: cover
+        label: Imagem de capa (opcional)
+        type: image
+        description: "JPG, PNG ou WebP, 1200x630 px, até 1 MB. Sem imagem, o site usa a identidade visual do escritório."
+
+      - name: coverAlt
+        label: Descrição da imagem (opcional)
+        type: string
+        maxlength: 150
+        description: "Texto alternativo para acessibilidade e SEO. Descreva o que aparece na imagem."
+        placeholder: "Ex.: Dra. Cristiane Fairbanks durante entrevista ao vivo na rádio Nova Brasil"
+
+      - name: areas
+        label: Áreas relacionadas
+        type: select
+        description: "Áreas de atuação ligadas ao texto. A publicação aparece na página de cada área marcada."
+        options:
+          multiple: true
+          values:
+            - value: direito-de-familia
+              label: Direito de Família
+            - value: casamento-uniao-estavel-regime-de-bens-pacto-antenupcial
+              label: Casamento, União Estável e Pacto Antenupcial
+            - value: divorcio-e-partilha
+              label: Divórcio e Partilha
+            - value: guarda-e-convivencia-parental
+              label: Guarda e Convivência Parental
+            - value: pensao-alimenticia
+              label: Pensão Alimentícia
+            - value: alienacao-parental-e-abandono-afetivo
+              label: Alienação Parental e Abandono Afetivo
+            - value: direito-dos-animais-e-guarda-pet
+              label: Direito dos Animais e Guarda Pet
+            - value: inventario-e-sucessoes
+              label: Inventário e Sucessões
+            - value: planejamento-sucessorio
+              label: Planejamento Sucessório
+            - value: direito-imobiliario
+              label: Direito Imobiliário
+            - value: locacao-de-imoveis
+              label: Locação de Imóveis
+            - value: direito-educacional
+              label: Direito Educacional
+
+      - name: tags
+        label: Tags (opcional)
+        type: string
+        list:
+          max: 6
+        description: "Palavras-chave curtas. Até 6."
+        placeholder: "Ex.: inventário extrajudicial"
+
+      - name: outlet
+        label: Veículo (só para Na mídia)
+        type: string
+        description: "Nome do jornal, rádio, TV ou site onde a matéria saiu."
+        placeholder: "Ex.: Folha de S.Paulo"
+
+      - name: sourceUrl
+        label: Link da matéria original (só para Na mídia ou Notícia)
+        type: string
+        description: "Endereço completo, começando com https://. Vira o botão 'Ver matéria original'."
+        placeholder: "https://..."
+
+      - name: featured
+        label: Destaque
+        type: boolean
+        default: false
+        description: "Marque para mostrar em primeiro lugar no blog e na página inicial."
+
+      - name: draft
+        label: Rascunho
+        type: boolean
+        default: false
+        description: "Marcado = não aparece no site. Desmarque para publicar."
+
+      - name: faq
+        label: Perguntas frequentes (opcional)
+        type: object
+        list:
+          max: 6
+        description: "Perguntas curtas com respostas objetivas. Geram dados estruturados (FAQ) para o Google e para assistentes de IA."
+        fields:
+          - name: q
+            label: Pergunta
+            type: string
+            required: true
+            placeholder: "Ex.: Qual é o prazo para abrir o inventário?"
+          - name: a
+            label: Resposta
+            type: text
+            required: true
+            placeholder: "Ex.: 60 dias a contar do falecimento, conforme o artigo 611 do CPC."
+
+      - name: body
+        label: Texto
+        type: rich-text
+        required: true
+        description: "Comece respondendo a pergunta do título nos dois primeiros parágrafos. Use subtítulos (Título 2) em formato de pergunta a cada 150 a 300 palavras. Cite a lei ou a fonte no próprio texto."
+
+settings:
+  content:
+    merge: true

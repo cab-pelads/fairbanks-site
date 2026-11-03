@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
-import { SectionHeading } from "@/components/SectionHeading";
+import { PageHeader } from "@/components/PageHeader";
 import { ServiceCard } from "@/components/ServiceCard";
 import { categories, services, type ServiceCategory } from "@/data/services";
 import { breadcrumbSchema, graph, servicesListSchema, webPageSchema } from "@/lib/schema";
@@ -21,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 const order: ServiceCategory[] = ["familia", "sucessoes", "patrimonio", "educacional"];
+const crumbs = [{ name: "Início", path: "/" }, { name: "Áreas de atuação" }];
 
 export default function ServicosPage() {
   return (
@@ -29,45 +29,42 @@ export default function ServicosPage() {
         data={graph(
           { ...webPageSchema({ path: "/servicos/", name: title, description, type: "CollectionPage" }) },
           servicesListSchema(services),
-          breadcrumbSchema([{ name: "Início", path: "/" }, { name: "Áreas de atuação" }]),
+          breadcrumbSchema(crumbs),
         )}
       />
-      <div className="bg-ivory">
-        <div className="container-site py-6">
-          <Breadcrumbs items={[{ name: "Início", path: "/" }, { name: "Áreas de atuação" }]} />
-        </div>
-      </div>
-      <section className="bg-ivory">
-        <div className="container-site grid gap-10 pb-16 pt-4 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7">
-            <SectionHeading
-              as="h1"
-              eyebrow="Áreas de atuação"
-              title="Advocacia para família, sucessões, patrimônio e educação"
-              text="Há mais de 20 anos a Fairbanks Advocacia atua em direito de família e sucessões, cível e consumidor, e também em direito educacional. Cada área abaixo tem uma página própria, com explicações diretas e respostas às perguntas mais frequentes."
-            />
-          </div>
-          <div className="lg:col-span-5">
-            <Image
-              src="/images/areas-de-atuacao-colagem.webp"
-              alt="Colagem com objetos que representam as áreas do escritório: alianças, balança, chaves de casa, coleira de pet, beca de formatura e testamento"
-              width={965}
-              height={1072}
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="mx-auto w-full max-w-md"
-            />
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        crumbs={crumbs}
+        eyebrow="Áreas de atuação"
+        title="Advocacia para família, sucessões, patrimônio e educação"
+        lead={
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">
+            Há mais de 20 anos a Fairbanks Advocacia atua em direito de família e sucessões, cível e consumidor, e também em direito educacional. Cada área abaixo tem uma página própria, com explicações diretas, sinais de que é hora de procurar a advogada e respostas às perguntas mais frequentes.
+          </p>
+        }
+        aside={
+          <Image
+            src="/images/areas-de-atuacao-colagem.webp"
+            alt="Colagem com objetos que representam as áreas do escritório: alianças, balança, chaves de casa, coleira de pet, beca de formatura e testamento"
+            width={965}
+            height={1072}
+            priority
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="mx-auto w-full max-w-sm"
+          />
+        }
+      />
 
       {order.map((cat, i) => (
-        <section key={cat} aria-labelledby={`cat-${cat}`} className={i % 2 === 0 ? "bg-white" : "bg-ivory"}>
-          <div className="container-site py-16">
-            <h2 id={`cat-${cat}`} className="font-display text-balance text-3xl font-medium text-plum-900">
-              {categories[cat].label}
-            </h2>
-            <p className="mt-2 max-w-2xl text-pretty text-muted">{categories[cat].description}</p>
-            <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <section key={cat} aria-labelledby={`cat-${cat}`} className={i % 2 === 0 ? "bg-ivory" : "bg-white"}>
+          <div className="container-site grid gap-8 py-16 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">{String(i + 1).padStart(2, "0")}</p>
+              <h2 id={`cat-${cat}`} className="mt-2 font-display text-balance text-3xl font-medium text-plum-900">
+                {categories[cat].label}
+              </h2>
+              <p className="mt-3 max-w-sm text-pretty text-muted">{categories[cat].description}</p>
+            </div>
+            <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-8">
               {services
                 .filter((s) => s.category === cat)
                 .map((s) => (

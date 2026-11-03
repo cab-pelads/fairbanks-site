@@ -8,7 +8,7 @@ import { nav, site, whatsappLink } from "@/lib/site";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-plum-950 text-white/80">
+    <footer className="border-t border-gold-500/40 bg-plum-950 text-white/80">
       <div className="container-site grid gap-12 py-16 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Logo variant="white" className="w-48" />

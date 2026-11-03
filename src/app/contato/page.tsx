@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Clock, Mail, MapPin, MessageCircle, Navigation } from "lucide-react";
 import { InstagramIcon as Instagram } from "@/components/InstagramIcon";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHeader } from "@/components/PageHeader";
 import { ContactForm } from "@/components/ContactForm";
 import { JsonLd } from "@/components/JsonLd";
-import { SectionHeading } from "@/components/SectionHeading";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 import { site, whatsappLink } from "@/lib/site";
 
@@ -29,21 +28,21 @@ export default function ContatoPage() {
           breadcrumbSchema(crumbs),
         )}
       />
-      <div className="bg-ivory">
-        <div className="container-site py-6">
-          <Breadcrumbs items={crumbs} />
-        </div>
-      </div>
+      <PageHeader
+        crumbs={crumbs}
+        eyebrow="Contato"
+        title="Converse sobre o seu caso com clareza"
+        lead={
+          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/80">
+            Um primeiro contato para compreender a situação, orientar os próximos passos e indicar a estratégia jurídica mais adequada. Atendimento presencial na Vila Clementino, em São Paulo, ou por videoconferência.
+          </p>
+        }
+      />
       <section className="bg-ivory">
-        <div className="container-site grid gap-12 pb-20 pt-4 lg:grid-cols-12">
+        <div className="container-site grid gap-12 py-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeading
-              as="h1"
-              eyebrow="Contato"
-              title="Converse sobre o seu caso com clareza"
-              text="Um primeiro contato para compreender a situação, orientar os próximos passos e indicar a estratégia jurídica mais adequada. Atendimento presencial em São Paulo ou por videoconferência."
-            />
-            <address className="mt-10 space-y-5 not-italic">
+            <h2 className="font-display text-2xl font-medium text-plum-900">Canais de atendimento</h2>
+            <address className="mt-8 space-y-5 not-italic">
               <a href={whatsappLink("Olá, gostaria de agendar uma consulta.")} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4">
                 <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-plum-900 text-white">
                   <MessageCircle className="size-5" aria-hidden />

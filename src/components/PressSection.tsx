@@ -1,40 +1,30 @@
-import Image from "next/image";
-import { press } from "@/data/press";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { PostCard } from "@/components/PostCard";
 import { SectionHeading } from "@/components/SectionHeading";
+import { getPostsByType } from "@/lib/blog";
 
 export function PressSection() {
+  const posts = getPostsByType("midia").slice(0, 4);
+  if (posts.length === 0) return null;
   return (
     <section aria-labelledby="press-title" className="bg-sand">
       <div className="container-site py-20">
-        <SectionHeading
-          eyebrow="Na mídia"
-          title={<span id="press-title">Presença em veículos de imprensa e publicações</span>}
-          text="Participações e entrevistas da Dra. Cristiane Fairbanks em rádio, jornal e publicações acadêmicas."
-        />
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            eyebrow="Na mídia"
+            title={<span id="press-title">Presença em veículos de imprensa e publicações</span>}
+            text="Participações e entrevistas da Dra. Cristiane Fairbanks em rádio, jornal e publicações acadêmicas."
+          />
+          <Link href="/blog/na-midia/" className="inline-flex items-center gap-1 text-sm font-semibold text-plum-800 hover:text-plum-900">
+            Todas as aparições
+            <ArrowRight className="size-4 text-gold-500" aria-hidden />
+          </Link>
+        </div>
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {press.map((item) => (
-            <li key={item.title} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
-              <div className="relative aspect-[16/9] bg-plum-50">
-                <Image
-                  src={item.image}
-                  alt={`${item.outlet}: ${item.title}`}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-600">{item.outlet}</p>
-                <h3 className="mt-2 text-balance font-sans text-base font-semibold leading-snug text-plum-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-pretty text-sm leading-relaxed text-muted">{item.description}</p>
-                {item.date && (
-                  <time dateTime={item.date} className="mt-3 text-xs text-muted">
-                    {new Date(item.date + "T12:00:00").toLocaleDateString("pt-BR")}
-                  </time>
-                )}
-              </div>
+          {posts.map((p) => (
+            <li key={p.slug}>
+              <PostCard post={p} compact />
             </li>
           ))}
         </ul>

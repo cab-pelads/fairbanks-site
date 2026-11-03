@@ -57,5 +57,6 @@ export const nav = [
   { href: "/", label: "Início" },
   { href: "/sobre/", label: "Sobre" },
   { href: "/servicos/", label: "Áreas de atuação" },
+  { href: "/blog/", label: "Blog" },
   { href: "/contato/", label: "Contato" },
 ] as const;

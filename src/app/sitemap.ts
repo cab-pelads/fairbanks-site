@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
+import { getAllPosts, postTypes } from "@/lib/blog";
 import { absoluteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -16,6 +17,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    { url: absoluteUrl("/blog/"), lastModified, changeFrequency: "weekly" as const, priority: 0.8 },
+    ...Object.values(postTypes).map((t) => ({
+      url: absoluteUrl(`/blog/${t.slug}/`),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
+    ...getAllPosts().map((p) => ({
+      url: absoluteUrl(`/blog/${p.slug}/`),
+      lastModified: new Date(`${p.updated ?? p.date}T12:00:00Z`),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 }

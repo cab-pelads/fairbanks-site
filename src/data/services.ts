@@ -36,6 +36,10 @@ export type Service = {
   sections: ServiceSection[];
   faq: Faq[];
   related: string[];
+  /** Sinais de que é hora de procurar a advogada */
+  signals: string[];
+  /** Erros comuns que o escritório vê nesses casos */
+  mistakes: string[];
 };
 
 export const categories: Record<ServiceCategory, { label: string; description: string }> = {
@@ -136,6 +140,21 @@ export const services: Service[] = [
       },
     ],
     related: ["divorcio-e-partilha", "guarda-e-convivencia-parental", "pensao-alimenticia"],
+    signals: [
+      "Você está pensando em se separar e não sabe por onde começar.",
+      "Há um filho menor e os pais não conseguem combinar rotina, escola ou despesas.",
+      "A pensão não é paga ou ficou defasada diante das despesas atuais.",
+      "Você vai casar ou morar junto e quer definir regras patrimoniais.",
+      "Um familiar faleceu e é preciso organizar o inventário.",
+      "Recebeu uma notificação, citação ou mensagem de advogado da outra parte.",
+    ],
+    mistakes: [
+      "Assinar acordos informais, por mensagem, sem homologação ou escritura.",
+      "Sair de casa sem orientação e perder a posse de documentos e bens.",
+      "Esperar o conflito escalar antes de buscar mediação.",
+      "Usar os filhos como mensageiros ou testemunhas da disputa.",
+      "Deixar de guardar comprovantes de despesas e de pagamentos.",
+    ],
   },
   {
     slug: "casamento-uniao-estavel-regime-de-bens-pacto-antenupcial",
@@ -243,6 +262,20 @@ export const services: Service[] = [
       },
     ],
     related: ["divorcio-e-partilha", "planejamento-sucessorio", "direito-de-familia"],
+    signals: [
+      "Um dos dois tem patrimônio, empresa ou herança a receber.",
+      "Há filhos de relacionamentos anteriores.",
+      "O casal vai morar junto e não quer que isso configure união estável.",
+      "Vocês pretendem comprar um imóvel juntos antes de casar.",
+      "Querem converter a união estável em casamento ou formalizá-la em cartório.",
+    ],
+    mistakes: [
+      "Acreditar que morar junto não gera direitos patrimoniais.",
+      "Escolher o regime de bens por hábito, sem simular divórcio e sucessão.",
+      "Fazer o pacto antenupcial depois do casamento (ele precisa ser anterior).",
+      "Esquecer de registrar o pacto no cartório de imóveis.",
+      "Comprar imóvel em nome de um só achando que isso o torna particular.",
+    ],
   },
   {
     slug: "divorcio-e-partilha",
@@ -335,6 +368,20 @@ export const services: Service[] = [
       "pensao-alimenticia",
       "casamento-uniao-estavel-regime-de-bens-pacto-antenupcial",
     ],
+    signals: [
+      "A decisão de separar já foi tomada e vocês querem resolver com o menor desgaste.",
+      "Há bens, dívidas ou financiamentos em comum para dividir.",
+      "Existem filhos menores e é preciso definir guarda, convivência e alimentos.",
+      "Um dos cônjuges mora em outra cidade ou país.",
+      "A união estável nunca foi formalizada e precisa ser reconhecida e dissolvida.",
+    ],
+    mistakes: [
+      "Dividir bens de forma informal e deixar a partilha para depois sem documento.",
+      "Esquecer das dívidas e dos financiamentos ao negociar.",
+      "Sair do imóvel sem combinar por escrito quem paga as despesas.",
+      "Abrir mão de direitos para acelerar o processo, por cansaço.",
+      "Ir ao cartório sem advogado: a lei exige a assistência.",
+    ],
   },
   {
     slug: "guarda-e-convivencia-parental",
@@ -415,6 +462,20 @@ export const services: Service[] = [
       },
     ],
     related: ["pensao-alimenticia", "alienacao-parental-e-abandono-afetivo", "divorcio-e-partilha"],
+    signals: [
+      "Os pais discordam sobre a rotina, a escola ou as viagens da criança.",
+      "Um dos genitores dificulta o contato com o outro.",
+      "As trocas de datas viraram fonte de briga constante.",
+      "Um dos pais pretende mudar de cidade com a criança.",
+      "A guarda foi definida há anos e a realidade da família mudou.",
+    ],
+    mistakes: [
+      "Deixar férias e feriados 'a combinar'.",
+      "Não registrar por escrito as trocas e os acordos.",
+      "Levar a criança para outra cidade sem autorização.",
+      "Confundir guarda compartilhada com divisão igual de tempo.",
+      "Tratar a convivência como moeda de troca da pensão.",
+    ],
   },
   {
     slug: "pensao-alimenticia",
@@ -488,6 +549,20 @@ export const services: Service[] = [
       },
     ],
     related: ["guarda-e-convivencia-parental", "divorcio-e-partilha", "direito-de-familia"],
+    signals: [
+      "O outro genitor não paga ou paga valor insuficiente.",
+      "A pensão ficou defasada diante das despesas atuais do filho.",
+      "Você perdeu renda e não consegue manter o valor fixado.",
+      "O filho atingiu a maioridade e é preciso revisar ou encerrar a obrigação.",
+      "Há atraso acumulado e você quer executar a dívida.",
+    ],
+    mistakes: [
+      "Aceitar pagamentos informais sem comprovante.",
+      "Parar de pagar por conta própria, sem pedir revisão judicial.",
+      "Deixar a dívida acumular por anos antes de executar.",
+      "Combinar valor sem considerar escola, saúde e atividades.",
+      "Confundir pensão com visitas: uma não depende da outra.",
+    ],
   },
   {
     slug: "alienacao-parental-e-abandono-afetivo",
@@ -562,6 +637,20 @@ export const services: Service[] = [
       },
     ],
     related: ["guarda-e-convivencia-parental", "pensao-alimenticia", "direito-de-familia"],
+    signals: [
+      "A criança passou a rejeitar um dos pais sem motivo aparente.",
+      "Informações escolares e médicas são escondidas de um genitor.",
+      "Houve mudança de domicílio para dificultar o contato.",
+      "Um dos genitores se afastou completamente da vida do filho.",
+      "Há acusações cruzadas de alienação em meio a disputa patrimonial.",
+    ],
+    mistakes: [
+      "Acusar alienação parental sem provas, como resposta a outro conflito.",
+      "Gravar ou pressionar a criança para obter declarações.",
+      "Interromper a convivência por conta própria.",
+      "Não procurar acompanhamento psicológico para a criança.",
+      "Deixar de registrar mensagens, datas e episódios desde o início.",
+    ],
   },
   {
     slug: "direito-dos-animais-e-guarda-pet",
@@ -638,6 +727,19 @@ export const services: Service[] = [
       },
     ],
     related: ["divorcio-e-partilha", "guarda-e-convivencia-parental", "planejamento-sucessorio"],
+    signals: [
+      "O casal está se separando e não há acordo sobre quem fica com o pet.",
+      "Um dos tutores impede o outro de conviver com o animal.",
+      "Estabelecimento recusou a entrada do seu cão-guia ou cão de serviço.",
+      "O condomínio quer proibir a permanência do animal.",
+      "Você quer deixar previsão para o cuidado do pet no planejamento sucessório.",
+    ],
+    mistakes: [
+      "Tratar o pet apenas como bem a ser partilhado.",
+      "Não prever a divisão das despesas veterinárias no acordo.",
+      "Deixar de documentar o treinamento e o registro do cão de serviço.",
+      "Resolver a convivência verbalmente, sem registro no divórcio.",
+    ],
   },
   {
     slug: "inventario-e-sucessoes",
@@ -728,6 +830,20 @@ export const services: Service[] = [
       },
     ],
     related: ["planejamento-sucessorio", "direito-imobiliario", "divorcio-e-partilha"],
+    signals: [
+      "Houve um falecimento na família nas últimas semanas.",
+      "Os herdeiros estão de acordo e querem resolver em cartório.",
+      "Há testamento, herdeiro menor ou herdeiro morando no exterior.",
+      "Um imóvel do falecido está sem escritura ou com pendências.",
+      "Os herdeiros não têm dinheiro para pagar o imposto e precisam vender um bem.",
+    ],
+    mistakes: [
+      "Perder o prazo de 60 dias e pagar multa sobre o ITCMD.",
+      "Movimentar contas do falecido antes do inventário.",
+      "Vender bens 'de boca', sem alvará ou autorização.",
+      "Ignorar dívidas do falecido, que são pagas pelo espólio.",
+      "Iniciar inventário judicial quando o extrajudicial era possível.",
+    ],
   },
   {
     slug: "planejamento-sucessorio",
@@ -810,6 +926,20 @@ export const services: Service[] = [
       "inventario-e-sucessoes",
       "casamento-uniao-estavel-regime-de-bens-pacto-antenupcial",
       "direito-imobiliario",
+    ],
+    signals: [
+      "Você tem imóveis, empresa ou patrimônio relevante e quer organizar a sucessão.",
+      "Há filhos de relacionamentos diferentes ou herdeiro que precisa de proteção especial.",
+      "Deseja beneficiar alguém fora da linha de herdeiros necessários.",
+      "Quer reduzir o custo e o tempo do inventário para a família.",
+      "Precisa nomear tutor para filhos menores em caso de falecimento.",
+    ],
+    mistakes: [
+      "Doar tudo em vida sem reserva de usufruto, perdendo a renda e o controle.",
+      "Fazer testamento particular sem as formalidades legais.",
+      "Ignorar a legítima dos herdeiros necessários.",
+      "Montar holding sem necessidade, assumindo custo desproporcional.",
+      "Não revisar o planejamento após casamento, divórcio ou nascimento de filhos.",
     ],
   },
   {
@@ -899,6 +1029,20 @@ export const services: Service[] = [
       },
     ],
     related: ["locacao-de-imoveis", "planejamento-sucessorio", "inventario-e-sucessoes"],
+    signals: [
+      "Você vai comprar ou vender um imóvel e quer segurança antes de assinar.",
+      "Encontrou um imóvel em leilão e precisa avaliar o edital e os riscos.",
+      "O imóvel tem pendências na matrícula, dívidas ou está sem escritura.",
+      "Quer doar, permutar ou ceder direitos sobre um imóvel.",
+      "Comprou na planta e a construtora atrasou ou alterou o contrato.",
+    ],
+    mistakes: [
+      "Pagar sinal antes de analisar a matrícula e as certidões do vendedor.",
+      "Confiar só no contrato de gaveta.",
+      "Não verificar o estado civil e o regime de bens do vendedor.",
+      "Arrematar em leilão sem conferir ocupação e dívidas.",
+      "Deixar de registrar a escritura no cartório de imóveis.",
+    ],
   },
   {
     slug: "locacao-de-imoveis",
@@ -978,6 +1122,20 @@ export const services: Service[] = [
       },
     ],
     related: ["direito-imobiliario", "planejamento-sucessorio", "inventario-e-sucessoes"],
+    signals: [
+      "Vai alugar um imóvel e quer um contrato que proteja as duas partes.",
+      "O inquilino está inadimplente ou não desocupa o imóvel.",
+      "Precisa renovar locação comercial ou revisar o valor do aluguel.",
+      "Recebe aluguéis e quer entender a nova tributação.",
+      "Há conflito sobre reparos, garantia ou devolução do imóvel.",
+    ],
+    mistakes: [
+      "Usar contrato genérico da internet sem vistoria de entrada.",
+      "Exigir mais de uma garantia, o que a lei proíbe.",
+      "Não recolher o Carnê-Leão sobre os aluguéis.",
+      "Cortar água ou luz do inquilino inadimplente, em vez de ajuizar o despejo.",
+      "Deixar o contrato vencer sem definir a renovação.",
+    ],
   },
   {
     slug: "direito-educacional",
@@ -1055,6 +1213,19 @@ export const services: Service[] = [
       },
     ],
     related: ["guarda-e-convivencia-parental", "direito-de-familia", "pensao-alimenticia"],
+    signals: [
+      "A instituição recusou matrícula, rematrícula ou transferência.",
+      "O aluno foi impedido de fazer provas ou retirar documentos por inadimplência.",
+      "A escola não oferece as adaptações devidas a estudante com deficiência.",
+      "Houve processo disciplinar ou desligamento sem direito de defesa.",
+      "O diploma ou histórico não é emitido no prazo.",
+    ],
+    mistakes: [
+      "Aceitar sanções pedagógicas por dívida, que a lei proíbe.",
+      "Não guardar contratos, boletos e comunicados da instituição.",
+      "Deixar de recorrer administrativamente antes de ir à Justiça.",
+      "Assinar confissão de dívida sem revisar os valores cobrados.",
+    ],
   },
 ];
 

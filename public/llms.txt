@@ -26,6 +26,14 @@ Contato: WhatsApp +55 11 99623-2400 · contato@fairbanksadvocacia.com.br · Rua 
 - [Locação de Imóveis](https://fairbanksadvocacia.com.br/servicos/locacao-de-imoveis/)
 - [Direito Educacional](https://fairbanksadvocacia.com.br/servicos/direito-educacional/)
 
+## Blog (artigos, notícias e na mídia)
+
+- [Blog](https://fairbanksadvocacia.com.br/blog/): índice de todas as publicações.
+- [Artigos](https://fairbanksadvocacia.com.br/blog/artigos/): textos explicativos assinados pela Dra. Cristiane Fairbanks.
+- [Notícias](https://fairbanksadvocacia.com.br/blog/noticias/): mudanças na lei e decisões relevantes.
+- [Na mídia](https://fairbanksadvocacia.com.br/blog/na-midia/): entrevistas e menções em veículos de imprensa.
+- [Feed RSS](https://fairbanksadvocacia.com.br/feed.xml)
+
 ## Opcional
 
 - [Sitemap](https://fairbanksadvocacia.com.br/sitemap.xml)

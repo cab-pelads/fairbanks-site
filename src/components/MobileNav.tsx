@@ -16,7 +16,7 @@ export function MobileNav() {
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex size-11 items-center justify-center rounded-full text-plum-900 hover:bg-plum-50"
+        className="inline-flex size-11 items-center justify-center rounded-full text-white hover:bg-white/10"
       >
         {open ? <X className="size-6" aria-hidden /> : <Menu className="size-6" aria-hidden />}
       </button>
@@ -24,7 +24,7 @@ export function MobileNav() {
         id="mobile-menu"
         hidden={!open}
         className={cn(
-          "absolute inset-x-0 top-full border-b border-line bg-ivory shadow-lg",
+          "absolute inset-x-0 top-full border-b border-white/10 bg-plum-900 shadow-lg",
           open ? "block" : "hidden",
         )}
       >
@@ -34,7 +34,7 @@ export function MobileNav() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium text-plum-900 hover:bg-plum-50"
+              className="rounded-lg px-3 py-3 text-base font-medium text-white hover:bg-white/10"
             >
               {item.label}
             </Link>
@@ -43,7 +43,7 @@ export function MobileNav() {
             href={whatsappLink("Olá, gostaria de agendar uma consulta.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-plum-900 px-5 py-3 text-sm font-semibold text-white"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-5 py-3 text-sm font-semibold text-plum-950"
           >
             <MessageCircle className="size-4" aria-hidden />
             Falar no WhatsApp
