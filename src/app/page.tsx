@@ -91,7 +91,7 @@ export default function HomePage() {
                 <span aria-hidden className="h-px w-8 bg-gold-500" />
                 <span className="font-display text-lg font-bold text-plum-900 sm:text-xl">{site.founder.honorific}</span>
               </span>
-              <span className="inline-flex items-center rounded-full border border-gold-500 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-gold-600">
+              <span className="inline-flex items-center rounded-full bg-plum-900 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-gold-400">
                 {site.founder.oab}
               </span>
             </p>
