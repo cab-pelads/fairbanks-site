@@ -128,7 +128,6 @@ export default function HomePage() {
         {/* Faixa vinho com a foto centralizada */}
         <div className="flex flex-col items-center justify-center border-t border-gold-500 bg-plum-900 px-6 py-12 lg:border-l lg:border-t-0 lg:py-14">
           <div className="relative w-full max-w-md lg:w-[74%] lg:max-w-[30rem]">
-            <div className="absolute -left-3 -bottom-3 h-full w-full rounded-3xl bg-gold-500" aria-hidden />
             <Image
               src="/images/cristiane-fairbanks-escritorio.webp"
               alt="Dra. Cristiane Fairbanks em pé, de braços cruzados, diante de um quadro com a cidade de São Paulo"
