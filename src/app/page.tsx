@@ -109,7 +109,7 @@ export default function HomePage() {
           </div>
         </div>
         {/* Faixa vinho com a foto centralizada */}
-        <div className="flex items-center justify-center border-t border-gold-500 bg-plum-900 px-6 py-12 lg:border-l lg:border-t-0 lg:py-16">
+        <div className="flex flex-col items-center justify-center border-t border-gold-500 bg-plum-900 px-6 py-12 lg:border-l lg:border-t-0 lg:py-14">
           <div className="relative w-full max-w-md lg:w-[74%] lg:max-w-[30rem]">
             <div className="absolute -left-3 -bottom-3 h-full w-full rounded-3xl bg-gold-500" aria-hidden />
             <Image
@@ -122,22 +122,12 @@ export default function HomePage() {
               className="relative aspect-[4/5] w-full rounded-3xl object-cover object-top"
             />
           </div>
-        </div>
-      </section>
-
-      {/* Linha de credencial e presença */}
-      <section aria-label="Credenciais" className="border-y border-line bg-white">
-        <div className="container-site flex flex-col gap-3 py-5 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-semibold text-plum-900">
-            <span className="mr-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">OAB/SP</span>
-            274.480
-          </p>
-          <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.16em]">Presença em</span>
+          <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-white/70">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-400">Presença em</span>
             {mentions.map((m, i) => (
               <span key={m} className="flex items-center gap-x-3">
-                {i > 0 && <span aria-hidden className="text-line">|</span>}
-                <span className="font-medium text-ink/70">{m}</span>
+                {i > 0 && <span aria-hidden className="text-white/25">|</span>}
+                <span className="font-medium">{m}</span>
               </span>
             ))}
           </p>
