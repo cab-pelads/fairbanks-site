@@ -36,7 +36,7 @@ const trajectory = [
   { label: "Advocacia", title: "Mais de 20 anos em família e sucessões", text: "Inventários, divórcios e partilhas, guarda, convivência e alimentos, com prioridade para a mediação e a via extrajudicial." },
   { label: "Pesquisa", title: "Pós-doutorado em Educação (Unifesp)", text: "Pesquisa sobre a universidade, o acesso e a permanência de estudantes e o direito educacional, com publicações na área." },
   { label: "Instituição", title: "Cinco comissões da OAB/SP", text: "Participação ativa em comissões de família e sucessões, soluções consensuais, direito notarial, mulheres advogadas e acadêmicos." },
-  { label: "Imprensa", title: "Rádio, jornal e publicações", text: "Participações no Jornal Nova Manhã (Nova Brasil), reportagem na Folha de S.Paulo e publicações acadêmicas." },
+  { label: "Imprensa", title: "Rádio, jornal e publicações", text: "Participação no Jornal Nova Manhã (Nova Brasil), livro com o Sindpesp e publicações acadêmicas." },
 ];
 
 const values = [

@@ -68,7 +68,7 @@ const areaCards: { cat: ServiceCategory; imageSlug: string; text: string }[] = [
   },
 ];
 
-const mentions = ["Folha de S.Paulo", "Nova Brasil", "PUC-SP", "Unifesp"];
+const mentions = ["Nova Brasil", "PUC-SP", "Unifesp"];
 
 
 export default function HomePage() {
