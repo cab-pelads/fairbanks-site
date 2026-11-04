@@ -67,26 +67,42 @@ Texto de 150 a 300 palavras, autocontido.
 - Preencha `areas` para a publicação aparecer na página da área e gerar links internos.
 - Marque `featured: true` em no máximo uma ou duas publicações por vez.
 
-## Plano de conteúdo sugerido (primeiros 3 meses)
+## Conteúdo publicado na migração
 
-Cada tema abaixo nasce de uma dúvida real que já aparece nas FAQs das páginas de serviço.
+Os artigos e as aparições na mídia foram importados do site anterior, com datas e links verificados nas fontes originais:
 
-| Mês | Tipo | Tema (título como pergunta) | Área |
+| Tipo | Publicação | Data | Fonte |
 | --- | --- | --- | --- |
-| 1 | Artigo | Quanto tempo demora um inventário em cartório? (publicado) | Inventário |
-| 1 | Artigo | Guarda compartilhada: como montar um plano de convivência? (publicado) | Guarda |
-| 1 | Notícia | Reforma tributária e aluguéis a partir de 2026 (publicado) | Locações |
-| 1 | Na mídia | Migrar as 4 aparições existentes com data e link reais | Vários |
+| Artigo | Perfil e trajetória dos egressos de Pedagogia da Unifesp | 29/09/2025 | Revista da FAEEBA v. 34 n. 79 (DOI 10.21879/faeeba2358-0194.2025.v34.n79.p114-135) |
+| Artigo | Dossiê Florestan Fernandes | a confirmar | CEMJ |
+| Artigo | Dossiê Newton Sucupira | a confirmar | CEMJ |
+| Notícia | Reforma tributária e aluguéis a partir de 2026 | 03/11/2026 | LC 214/2025 |
+| Na mídia | Jornal Nova Manhã, série Inventários, episódio 2 | 20/08/2025 | Nova Brasil (sem link) |
+| Na mídia | Folha: projeto de lei previdenciário para pós-graduandos | 05/02/2026 | Folhapress (reprodução no Acessa.com) |
+| Na mídia | Sindpesp lança o livro "Sindpesp: 30 anos de luta" | 03/12/2021 | Delegados.com.br |
+| Na mídia | Jornal do CA 22 de Agosto: entrevista com o Prof. Canotilho | 23/11/2007 | Migalhas |
+
+Os PDFs do artigo da Unifesp e da entrevista com Canotilho estão em `public/media/blog/`.
+
+## Plano de conteúdo sugerido (próximos 3 meses)
+
+Cada tema abaixo nasce de uma dúvida real que já aparece nas FAQs das páginas de serviço. Títulos como pergunta de busca.
+
+| Mês | Tipo | Tema | Área |
+| --- | --- | --- | --- |
+| 1 | Artigo | Quanto tempo demora um inventário em cartório? | Inventário |
+| 1 | Artigo | Guarda compartilhada: como montar um plano de convivência? | Guarda |
+| 2 | Artigo | Pacto antenupcial: quando vale a pena fazer? | Casamento |
 | 2 | Artigo | Divórcio em cartório: documentos, custos e passo a passo | Divórcio |
-| 2 | Artigo | Pensão alimentícia: como é calculado o valor e quando revisar? | Alimentos |
 | 2 | Notícia | O que muda com a atualização da Resolução 35 do CNJ para inventários | Inventário |
-| 3 | Artigo | Testamento ou doação em vida: qual é melhor para a minha família? | Planejamento sucessório |
-| 3 | Artigo | Comprar imóvel em leilão: quais riscos verificar antes de dar o lance? | Imobiliário |
+| 3 | Artigo | Pensão alimentícia: como é calculado o valor e quando revisar? | Alimentos |
+| 3 | Artigo | Comprar imóvel em leilão: quais riscos verificar antes do lance? | Imobiliário |
 | 3 | Artigo | Guarda de pet no divórcio: como fica a convivência com o animal? | Direito dos animais |
 
-Depois do terceiro mês, use o relatório "Desempenho" do Search Console para ver quais perguntas geram impressões e escreva sobre elas.
+Rascunhos dos três primeiros temas existem no histórico do Git (commit `c5c3583`) e podem ser recuperados e revisados pela Dra. Cristiane antes de publicar.
 
 ## Pendências
 
-- As três aparições na mídia sem data conhecida (Folha, SINDPESP, Jornal do CA 22 de Agosto) estão com `date: 2026-05-01` e um comentário no arquivo. Confirmar a data real e o link da matéria.
+- Confirmar a data de lançamento dos dossiês Florestan Fernandes e Newton Sucupira (hoje com a data de publicação no site anterior, 06/05/2026).
+- Obter o link do áudio ou vídeo da participação no Jornal Nova Manhã, se existir.
 - Definir se o escritório quer receber e-mail a cada publicação (pode ser feito com o RSS em um serviço como o Zapier ou o Make).

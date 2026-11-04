@@ -14,7 +14,7 @@ tags:
   - IBS
   - CBS
 sourceUrl: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm
-featured: true
+featured: false
 draft: false
 faq:
   - q: "Quem tem um único imóvel alugado vai pagar IBS e CBS?"

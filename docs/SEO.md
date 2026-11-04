@@ -73,7 +73,7 @@ Validar em: https://search.google.com/test/rich-results e https://validator.sche
 
 ## Dados pendentes de confirmação com o escritório
 
-- **Datas e links das aparições na mídia** (Folha, SINDPESP, Jornal do CA): ver `docs/BLOG.md`.
+- **Datas dos dossiês do CEMJ** e link da participação na Nova Brasil: ver `docs/BLOG.md`.
 
 - **CEP** do endereço (não foi incluído no schema para não publicar dado não confirmado).
 - Coordenadas exatas para `geo` no `LocalBusiness` (opcional).

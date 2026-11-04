@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ExternalLink, Users, Heart, Scale, Shield } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ExternalLink, Users, Heart, Scale, Shield } from "lucide-react";
 import { InstagramIcon as Instagram } from "@/components/InstagramIcon";
 import { ButtonLink } from "@/components/Button";
 import { JsonLd } from "@/components/JsonLd";
@@ -220,19 +221,19 @@ export default function SobrePage() {
         <div className="container-site py-20">
           <SectionHeading
             eyebrow="Publicações"
-            title={<span id="pub-title">Produção acadêmica</span>}
-            text="Pesquisas e publicações da Dra. Cristiane Fairbanks no campo da educação e do direito educacional."
+            title={<span id="pub-title">Produção acadêmica e livros</span>}
+            text="Pesquisas, dossiês e livros assinados pela Dra. Cristiane Fairbanks."
           />
-          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {publications.map((p) => (
               <li key={p.title} className="flex flex-col rounded-2xl border border-line bg-white p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold-600">{p.publisher}</p>
                 <h3 className="mt-2 text-balance font-sans text-base font-semibold leading-snug text-plum-900">{p.title}</h3>
                 <p className="mt-2 flex-1 text-pretty text-sm leading-relaxed text-muted">{p.description}</p>
-                <a href={p.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-plum-800 hover:text-plum-900">
+                <Link href={p.href} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-plum-800 hover:text-plum-900">
                   Ver publicação
-                  <ExternalLink className="size-3.5 text-gold-500" aria-hidden />
-                </a>
+                  <ArrowRight className="size-3.5 text-gold-500" aria-hidden />
+                </Link>
               </li>
             ))}
           </ul>

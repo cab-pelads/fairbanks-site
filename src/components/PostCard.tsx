@@ -14,6 +14,7 @@ export function PostCard({ post, className, compact }: { post: Post; className?:
           alt=""
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          style={{ objectPosition: post.coverPosition }}
           className="object-cover"
         />
       </Link>

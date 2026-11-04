@@ -105,6 +105,20 @@ content:
         description: "Texto alternativo para acessibilidade e SEO. Descreva o que aparece na imagem."
         placeholder: "Ex.: Dra. Cristiane Fairbanks durante entrevista ao vivo na rádio Nova Brasil"
 
+      - name: coverPosition
+        label: Enquadramento da capa (opcional)
+        type: select
+        default: center
+        description: "Qual parte da imagem deve ficar visível quando ela for cortada nos cards."
+        options:
+          values:
+            - value: center
+              label: Centro
+            - value: top
+              label: Topo
+            - value: bottom
+              label: Base
+
       - name: areas
         label: Áreas relacionadas
         type: select

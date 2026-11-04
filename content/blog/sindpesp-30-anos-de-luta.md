@@ -1,21 +1,26 @@
 ---
-title: "SINDPESP: 30 anos de luta"
+title: "Sindpesp lança o livro \"Sindpesp: 30 anos de luta\", de Cristiane Fairbanks e Estela Ribeiro"
 slug: sindpesp-30-anos-de-luta
 type: midia
-description: "Registro da participação da Dra. Cristiane Fairbanks no evento comemorativo dos 30 anos do SINDPESP."
-date: 2026-05-01 # data aproximada (publicação no site anterior); confirmar a data real da matéria com o escritório
+description: "O Sindicato dos Delegados de Polícia do Estado de São Paulo lançou, no Dia do Delegado, o livro que resgata três décadas de história da entidade. A obra é de autoria de Cristiane Fairbanks e Estela Ribeiro."
+date: 2021-12-03
 author: "Dra. Cristiane Fairbanks"
-cover: /media/blog/midia-sindpesp.webp
-coverAlt: "Dra. Cristiane Fairbanks em evento comemorativo dos 30 anos do SINDPESP"
+cover: /media/blog/sindpesp-30-anos-livro.jpg
+coverAlt: "Capa do livro Sindpesp: 30 anos de luta"
+coverPosition: top
 areas: []
 tags:
-  - institucional
-outlet: "SINDPESP"
+  - livro
+  - Sindpesp
+outlet: "Delegados.com.br"
+sourceUrl: https://delegados.com.br/noticias/sindpesp-lanca-livro-em-homenagem-ao-dia-do-delegado-celebrado-dia-3-de-dezembro/
 featured: false
 draft: false
 faq: []
 ---
 
-A Dra. Cristiane Fairbanks participou do evento que marcou os 30 anos do SINDPESP, em um encontro que reuniu representantes da categoria e convidados para celebrar a trajetória da entidade.
+O Sindicato dos Delegados de Polícia do Estado de São Paulo (Sindpesp) lançou em 3 de dezembro de 2021, em homenagem ao Dia do Delegado, o livro **Sindpesp: 30 anos de luta**, que resgata a história de três décadas da entidade em defesa da classe. As autoras são a Dra. Cristiane Fairbanks e Estela Ribeiro.
 
-A presença institucional em eventos de sindicatos, universidades e da OAB/SP faz parte da atuação do escritório, que integra comissões da Ordem voltadas ao direito de família, às soluções consensuais de conflitos e ao direito notarial. Conheça mais em [Sobre a Dra. Cristiane Fairbanks](/sobre/).
+A obra foi construída a partir de atas, jornais, fotografias, estudos, regimentos, livros e panfletos, e reúne imagens que cobrem os trinta anos da instituição e dos profissionais que contribuíram para a sua construção.
+
+Além da advocacia, a Dra. Cristiane Fairbanks é pesquisadora e escritora. Conheça a sua trajetória na página [Sobre](/sobre/).

@@ -50,6 +50,8 @@ export type Post = {
   author: string;
   cover?: string;
   coverAlt?: string;
+  /** object-position da capa nos cards e na página (ex.: "top"). */
+  coverPosition: string;
   areas: string[];
   tags: string[];
   outlet?: string;
@@ -111,6 +113,7 @@ export function getAllPosts({ includeDrafts = false } = {}): Post[] {
           author: String(data.author ?? "Dra. Cristiane Fairbanks"),
           cover: data.cover ? String(data.cover) : undefined,
           coverAlt: data.coverAlt ? String(data.coverAlt) : undefined,
+          coverPosition: data.coverPosition ? String(data.coverPosition) : "center",
           areas,
           tags: toStringArray(data.tags),
           outlet: data.outlet ? String(data.outlet) : undefined,

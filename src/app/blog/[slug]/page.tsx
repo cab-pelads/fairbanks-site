@@ -114,7 +114,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <div className="container-site grid gap-12 py-14 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <figure className="mb-10 overflow-hidden rounded-3xl border border-line">
-              <Image src={post.cover ?? coverFor(post.areas)} alt={post.coverAlt ?? ""} width={1200} height={675} priority sizes="(min-width: 1024px) 66vw, 100vw" className="aspect-[2/1] w-full object-cover" />
+              <Image src={post.cover ?? coverFor(post.areas)} alt={post.coverAlt ?? ""} width={1200} height={675} priority sizes="(min-width: 1024px) 66vw, 100vw" style={{ objectPosition: post.coverPosition }} className="aspect-[2/1] w-full object-cover" />
               {post.coverAlt && <figcaption className="px-4 py-2 text-xs text-muted">{post.coverAlt}</figcaption>}
             </figure>
             <div className="prose-fb max-w-none" dangerouslySetInnerHTML={{ __html: post.html }} />
