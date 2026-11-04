@@ -9,7 +9,6 @@ import { ProcessSteps } from "@/components/ProcessSteps";
 import { BlogPreview } from "@/components/BlogPreview";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
-import { MonogramOutline } from "@/components/MonogramOutline";
 import { categories, services, type ServiceCategory } from "@/data/services";
 import { faqSchema, graph, servicesListSchema, webPageSchema } from "@/lib/schema";
 import { site, whatsappLink } from "@/lib/site";
@@ -90,17 +89,12 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-ivory">
-        {/* Faixa vinho atrás da foto, com o monograma em contorno */}
+        {/* Faixa vinho atrás da foto */}
         <div
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-[46%] overflow-hidden bg-plum-900 lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[44%]"
         >
           <span className="absolute inset-y-0 left-0 w-px bg-gold-500" />
-          <MonogramOutline
-            className="absolute left-1/2 top-1/2 w-[88%] -translate-x-1/2 -translate-y-1/2 text-gold-400 lg:w-[96%]"
-            strokeWidth={1.5}
-            fillOpacity={0.08}
-          />
         </div>
         <div className="container-site relative grid items-center gap-12 py-16 lg:grid-cols-12 lg:py-24">
           <div className="lg:col-span-7">
@@ -126,7 +120,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-sm lg:col-span-4 lg:col-start-9 lg:max-w-none">
+          <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:col-start-8 lg:max-w-none">
             <div className="absolute -left-3 -bottom-3 h-full w-full rounded-3xl bg-gold-500" aria-hidden />
             <Image
               src="/images/cristiane-fairbanks-escritorio.webp"
@@ -134,7 +128,7 @@ export default function HomePage() {
               width={986}
               height={1273}
               priority
-              sizes="(min-width: 1024px) 33vw, 100vw"
+              sizes="(min-width: 1024px) 42vw, 100vw"
               className="relative aspect-[4/5] w-full rounded-3xl object-cover object-top"
             />
           </div>
