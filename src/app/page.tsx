@@ -88,23 +88,16 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ivory">
-        {/* Faixa vinho atrás da foto */}
-        <div
-          aria-hidden
-          className="absolute inset-x-0 bottom-0 h-[46%] overflow-hidden bg-plum-900 lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-[44%]"
-        >
-          <span className="absolute inset-y-0 left-0 w-px bg-gold-500" />
-        </div>
-        <div className="container-site relative grid items-center gap-12 py-16 lg:grid-cols-12 lg:py-24">
-          <div className="lg:col-span-7">
+      <section className="bg-ivory lg:grid lg:grid-cols-[57fr_43fr]">
+        <div className="px-4 py-16 sm:px-6 lg:py-24 lg:pl-[max(2rem,calc((100vw-76rem)/2+2rem))] lg:pr-12">
+          <div className="max-w-2xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
               {site.founder.honorific} · {site.founder.oab}
             </p>
-            <h1 className="font-display text-balance text-4xl font-bold leading-[1.1] text-plum-900 sm:text-[2.75rem] lg:text-[3.25rem]">
+            <h1 className="font-display text-balance text-4xl font-bold leading-[1.1] text-plum-900 sm:text-[2.75rem] lg:text-[3rem]">
               Advocacia de família, sucessões e patrimônio em São Paulo
             </h1>
-            <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink/80 sm:text-xl">
+            <p className="mt-6 text-pretty text-lg leading-relaxed text-ink/80 sm:text-xl">
               Direito tratado com estratégia, escuta e presença. Atuação jurídica para decisões
               sensíveis envolvendo família, patrimônio, sucessão e reorganização de vínculos, há
               mais de 20 anos.
@@ -120,7 +113,10 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:col-start-8 lg:max-w-none">
+        </div>
+        {/* Faixa vinho com a foto centralizada */}
+        <div className="flex items-center justify-center border-t border-gold-500 bg-plum-900 px-6 py-12 lg:border-l lg:border-t-0 lg:py-16">
+          <div className="relative w-full max-w-md lg:w-[74%] lg:max-w-[30rem]">
             <div className="absolute -left-3 -bottom-3 h-full w-full rounded-3xl bg-gold-500" aria-hidden />
             <Image
               src="/images/cristiane-fairbanks-escritorio.webp"
@@ -128,7 +124,7 @@ export default function HomePage() {
               width={986}
               height={1273}
               priority
-              sizes="(min-width: 1024px) 42vw, 100vw"
+              sizes="(min-width: 1024px) 32vw, 100vw"
               className="relative aspect-[4/5] w-full rounded-3xl object-cover object-top"
             />
           </div>
