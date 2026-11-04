@@ -13,7 +13,6 @@ import { categories, services, type ServiceCategory } from "@/data/services";
 import { faqSchema, graph, servicesListSchema, webPageSchema } from "@/lib/schema";
 import { site, whatsappLink } from "@/lib/site";
 import { areaImage } from "@/lib/areaImages";
-import { cn } from "@/lib/utils";
 
 const title = "Advocacia de Família, Sucessões e Patrimônio em São Paulo";
 const description =
@@ -45,6 +44,29 @@ const homeFaq = [
   },
 ];
 
+
+const areaCards: { cat: ServiceCategory; imageSlug: string; text: string }[] = [
+  {
+    cat: "familia",
+    imageSlug: "direito-de-familia",
+    text: "Casamento e união estável, divórcio, guarda dos filhos, pensão alimentícia, alienação parental e guarda de pets.",
+  },
+  {
+    cat: "sucessoes",
+    imageSlug: "inventario-e-sucessoes",
+    text: "Inventário em cartório ou judicial, partilha de herança, testamento e planejamento sucessório.",
+  },
+  {
+    cat: "patrimonio",
+    imageSlug: "direito-imobiliario",
+    text: "Compra e venda de imóveis com segurança, leilões, contratos de locação, despejo e tributação de aluguéis.",
+  },
+  {
+    cat: "educacional",
+    imageSlug: "direito-educacional",
+    text: "Acesso e permanência, contratos com instituições de ensino, inclusão e o direito à educação.",
+  },
+];
 
 const mentions = ["Folha de S.Paulo", "Nova Brasil", "PUC-SP", "Unifesp"];
 
@@ -113,51 +135,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Áreas de atuação */}
+      {/* Áreas de atuação: só as quatro áreas, levando ao índice completo */}
       <section aria-labelledby="areas-title" className="bg-ivory">
         <div className="container-site py-20">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Áreas de atuação"
               title={<span id="areas-title">Em que podemos ajudar você</span>}
-              text="Há mais de 20 anos atuamos em direito de família e sucessões, cível e consumidor, e também em direito educacional. Escolha a sua situação: cada área tem uma página com respostas diretas às dúvidas mais comuns."
+              text="Quatro frentes de atuação, há mais de 20 anos. Escolha a sua situação para ver os serviços de cada área e as respostas às dúvidas mais comuns."
             />
-            <Link href="/servicos/" className="inline-flex items-center gap-1 text-sm font-semibold text-plum-800 hover:text-plum-900">
-              Todas as áreas
-              <ArrowRight className="size-4 text-gold-500" aria-hidden />
-            </Link>
+            <ButtonLink href="/servicos/" variant="outline">
+              Ver todas as áreas
+              <ArrowRight className="size-4" aria-hidden />
+            </ButtonLink>
           </div>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s) => {
-              const img = areaImage(s.slug);
+            {areaCards.map((card) => {
+              const img = areaImage(card.imageSlug);
+              const count = services.filter((s) => s.category === card.cat).length;
               return (
-                <li key={s.slug}>
+                <li key={card.cat}>
                   <Link
-                    href={`/servicos/${s.slug}/`}
-                    className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-plum-900 sm:aspect-[4/4.6]"
+                    href={`/servicos/#cat-${card.cat}`}
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white transition-colors duration-150 hover:border-gold-400"
                   >
-                    <Image
-                      src={img.src}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      style={{ objectPosition: img.position }}
-                      className={cn(
-                        "object-cover transition-transform duration-200 ease-out group-hover:scale-[1.04]",
-                        img.mirror && "-scale-x-100 group-hover:scale-x-[-1.04] group-hover:scale-y-[1.04]",
-                      )}
-                    />
-                    <span aria-hidden className="absolute inset-0 bg-[linear-gradient(to_top,rgba(42,19,35,0.92)_0%,rgba(42,19,35,0.55)_45%,rgba(42,19,35,0.05)_100%)]" />
-                    <span className="absolute inset-x-0 bottom-0 p-5">
-                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-400">
-                        {categories[s.category].label}
+                    <span className="relative block aspect-[4/3] overflow-hidden bg-sand">
+                      <Image
+                        src={img.src}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                        style={{ objectPosition: img.position }}
+                        className="object-cover transition-transform duration-200 ease-out group-hover:scale-[1.04]"
+                      />
+                    </span>
+                    <span className="flex flex-1 flex-col p-5">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-600">
+                        {count === 1 ? "1 serviço" : `${count} serviços`}
                       </span>
-                      <span className="mt-1.5 block text-balance text-lg font-semibold leading-snug text-white">
-                        {s.shortTitle}
+                      <span className="mt-1.5 block font-display text-xl font-bold leading-snug text-plum-900">
+                        {categories[card.cat].label}
                       </span>
-                      <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-white/80">
-                        Saiba mais
-                        <ArrowRight className="size-4 text-gold-400 transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
+                      <span className="mt-2 block flex-1 text-pretty text-sm leading-relaxed text-muted">{card.text}</span>
+                      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-plum-800">
+                        Ver serviços
+                        <ArrowRight className="size-4 text-gold-500 transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
                       </span>
                     </span>
                   </Link>
