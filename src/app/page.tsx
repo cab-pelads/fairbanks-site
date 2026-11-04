@@ -83,8 +83,8 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="bg-ivory lg:grid lg:grid-cols-[57fr_43fr]">
-        <div className="px-4 py-16 sm:px-6 lg:py-24 lg:pl-[max(2rem,calc((100vw-76rem)/2+2rem))] lg:pr-12">
+      <section className="bg-ivory lg:grid lg:grid-cols-[57fr_43fr] lg:items-stretch">
+        <div className="flex items-center px-4 py-16 sm:px-6 lg:py-20 lg:pl-[max(2rem,calc((100vw-76rem)/2+2rem))] lg:pr-12">
           <div className="max-w-2xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
               {site.founder.honorific} · {site.founder.oab}
