@@ -8,7 +8,7 @@ export default function NotFound() {
     <section className="bg-ivory">
       <div className="container-site py-24 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">Erro 404</p>
-        <h1 className="mt-3 font-display text-balance text-4xl font-medium text-plum-900">Página não encontrada</h1>
+        <h1 className="mt-3 font-display text-balance text-4xl font-bold text-plum-900">Página não encontrada</h1>
         <p className="mx-auto mt-4 max-w-md text-pretty text-muted">
           O endereço pode ter mudado. Veja as áreas de atuação ou volte para a página inicial.
         </p>

@@ -39,7 +39,7 @@ export function FounderSection() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
             A fundadora · {site.founder.oab}
           </p>
-          <h2 id="founder-title" className="font-display text-balance text-3xl font-medium leading-tight sm:text-4xl">
+          <h2 id="founder-title" className="font-display text-balance text-3xl font-bold leading-tight sm:text-4xl">
             {site.founder.honorific}
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-white/80">

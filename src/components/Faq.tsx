@@ -4,7 +4,7 @@ import type { Faq as FaqItem } from "@/data/services";
 export function Faq({ items, title = "Perguntas frequentes" }: { items: FaqItem[]; title?: string }) {
   return (
     <section aria-labelledby="faq-title" className="not-prose">
-      <h2 id="faq-title" className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">
+      <h2 id="faq-title" className="font-display text-balance text-2xl font-bold text-plum-900 sm:text-3xl">
         {title}
       </h2>
       <div className="mt-6 divide-y divide-line border-y border-line">

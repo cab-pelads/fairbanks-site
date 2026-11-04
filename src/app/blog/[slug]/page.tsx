@@ -156,7 +156,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             <div className="space-y-6 lg:sticky lg:top-24">
               <div className="rounded-2xl bg-plum-900 p-6 text-white">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">Precisa de orientação?</p>
-                <p className="mt-3 font-display text-2xl font-medium leading-snug">Converse com a advogada sobre o seu caso</p>
+                <p className="mt-3 font-display text-2xl font-bold leading-snug">Converse com a advogada sobre o seu caso</p>
                 <ButtonLink href={whatsappLink("Olá, li um conteúdo no site e gostaria de agendar uma consulta.")} variant="gold" className="mt-5 w-full">
                   <MessageCircle className="size-4" aria-hidden />
                   Falar no WhatsApp
@@ -194,7 +194,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
       {related.length > 0 && (
         <section className="bg-ivory">
           <div className="container-site py-16">
-            <h2 className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">Leia também</h2>
+            <h2 className="font-display text-balance text-2xl font-bold text-plum-900 sm:text-3xl">Leia também</h2>
             <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((p) => (
                 <li key={p.slug}>

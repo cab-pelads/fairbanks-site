@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
-@import "@fontsource-variable/fraunces/opsz.css";
+@import "@fontsource/libre-baskerville/700.css";
+@import "@fontsource/libre-baskerville/700-italic.css";
 
 @theme {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-display: "Libre Baskerville", ui-serif, Georgia, serif;
 
   --color-plum-950: #2a1323;
   --color-plum-900: #3d182e;
@@ -50,7 +51,8 @@
   h2,
   .font-display {
     font-family: var(--font-display);
-    font-variation-settings: "opsz" 144;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
   ::selection {
     background: var(--color-gold-200);
@@ -86,9 +88,9 @@
   margin-top: 1.1em;
 }
 .prose-fb h2 {
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 1.9rem);
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.75rem);
+  line-height: 1.25;
+  font-weight: 700;
   color: var(--color-plum-900);
   margin-top: 2.4em;
   text-wrap: balance;
@@ -138,7 +140,7 @@
   border-left: 3px solid var(--color-gold-500);
   padding-left: 1.25rem;
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-style: italic;
   color: var(--color-plum-800);
 }

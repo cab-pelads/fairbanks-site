@@ -16,7 +16,7 @@ export function Footer() {
         <div className="container-site relative grid gap-8 py-16 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-8">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">Atendimento</p>
-            <h2 id="cta-title" className="font-display text-balance text-3xl font-medium leading-tight sm:text-4xl">
+            <h2 id="cta-title" className="font-display text-balance text-3xl font-bold leading-tight sm:text-4xl">
               Converse sobre o seu caso com clareza.
             </h2>
             <p className="mt-4 max-w-2xl text-pretty text-white/75">

@@ -22,8 +22,8 @@ Regra: um acento (dourado) por seção; sem gradientes além do logo original.
 
 ## Ritmo de seções
 
-O vinho é acento, não fundo dominante. Fundos claros (`ivory`, `white`, `sand`) ocupam a maior parte da página. Blocos escuros: apenas o bloco da fundadora na home, o card lateral de contato nas páginas de área e de post, a lista "para quem é o escritório" no Sobre, a chamada para contato fundida ao rodapé e o rodapé. Header claro com logo vinho. Cabeçalho das páginas internas (`PageHeader`) claro, com breadcrumbs, título em Fraunces e um filete dourado.
+O vinho é acento, não fundo dominante. Fundos claros (`ivory`, `white`, `sand`) ocupam a maior parte da página. Blocos escuros: apenas o bloco da fundadora na home, o card lateral de contato nas páginas de área e de post, a lista "para quem é o escritório" no Sobre, a chamada para contato fundida ao rodapé e o rodapé. Header claro com logo vinho. Cabeçalho das páginas internas (`PageHeader`) claro, com breadcrumbs, título em Libre Baskerville e um filete dourado.
 
 ## Tipografia por nível
 
-Fraunces só em `h1`, `h2` e números de etapa. Títulos de card, `h3` e rótulos em Inter semibold. Isso evita o aspecto fino da serifa em tamanhos pequenos.
+Libre Baskerville só em `h1`, `h2` e números de etapa. Títulos de card, `h3` e rótulos em Inter semibold. Isso evita o aspecto fino da serifa em tamanhos pequenos.

@@ -13,7 +13,7 @@
 - Breadcrumbs visuais e em JSON-LD.
 - Links internos: cards na home e no índice, "áreas relacionadas" em cada serviço, rodapé com todas as áreas.
 - Imagens com `alt` descritivo, dimensões declaradas (sem CLS), WebP, `priority` apenas no hero.
-- Fontes auto-hospedadas (Fraunces + Inter via Fontsource), sem requisições ao Google Fonts.
+- Fontes auto-hospedadas (Libre Baskerville + Inter via Fontsource), sem requisições ao Google Fonts.
 - `lang="pt-BR"`, `theme-color`, `viewport` e detecção de telefone/endereço.
 
 ### Dados estruturados (JSON-LD, `@graph`)

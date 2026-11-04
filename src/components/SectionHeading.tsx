@@ -27,8 +27,8 @@ export function SectionHeading({ eyebrow, title, text, align = "left", tone = "d
       )}
       <Tag
         className={cn(
-          "font-display text-balance font-medium leading-[1.1]",
-          as === "h1" ? "text-4xl sm:text-5xl lg:text-6xl" : "text-3xl sm:text-4xl",
+          "font-display text-balance font-bold leading-[1.1]",
+          as === "h1" ? "text-3xl sm:text-4xl lg:text-[2.75rem]" : "text-[1.75rem] sm:text-[2.125rem]",
           tone === "dark" ? "text-plum-900" : "text-white",
         )}
       >

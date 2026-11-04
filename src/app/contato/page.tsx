@@ -41,7 +41,7 @@ export default function ContatoPage() {
       <section className="bg-white">
         <div className="container-site grid gap-12 py-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <h2 className="font-display text-2xl font-medium text-plum-900">Canais de atendimento</h2>
+            <h2 className="font-display text-2xl font-bold text-plum-900">Canais de atendimento</h2>
             <address className="mt-8 space-y-5 not-italic">
               <a href={whatsappLink("Olá, gostaria de agendar uma consulta.")} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4">
                 <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-plum-900 text-white">
@@ -103,7 +103,7 @@ export default function ContatoPage() {
           </div>
           <div className="lg:col-span-7">
             <div className="rounded-3xl border border-line bg-white p-6 sm:p-8">
-              <h2 className="font-display text-2xl font-medium text-plum-900">Envie uma mensagem</h2>
+              <h2 className="font-display text-2xl font-bold text-plum-900">Envie uma mensagem</h2>
               <p className="mt-2 text-sm text-muted">
                 Preencha os campos e a mensagem será montada para o WhatsApp ou e-mail do escritório.
               </p>
@@ -116,7 +116,7 @@ export default function ContatoPage() {
       </section>
       <section aria-label="Mapa de localização" className="bg-ivory">
         <div className="container-site py-16">
-          <h2 className="font-display text-2xl font-medium text-plum-900">Como chegar</h2>
+          <h2 className="font-display text-2xl font-bold text-plum-900">Como chegar</h2>
           <p className="mt-2 max-w-2xl text-pretty text-muted">
             O escritório fica na Vila Clementino, zona sul de São Paulo, próximo à estação Santa
             Cruz do metrô e ao Hospital São Paulo (Unifesp).

@@ -11,7 +11,7 @@ export default async function Image() {
   const logo = await readFile(join(process.cwd(), "public/brand/logo-branco.svg"));
   const logoSrc = `data:image/svg+xml;base64,${logo.toString("base64")}`;
   const font = await readFile(
-    join(process.cwd(), "src/fonts/fraunces-500.ttf"),
+    join(process.cwd(), "src/fonts/libre-baskerville-700.ttf"),
   ).catch(() => null);
 
   return new ImageResponse(
@@ -26,12 +26,12 @@ export default async function Image() {
           padding: 72,
           background: "#3d182e",
           color: "white",
-          fontFamily: font ? "Fraunces" : "serif",
+          fontFamily: font ? "Libre Baskerville" : "serif",
         }}
       >
         <img src={logoSrc} alt="" width={420} height={124} />
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div style={{ fontSize: 54, lineHeight: 1.1, maxWidth: 1000 }}>
+          <div style={{ fontSize: 48, lineHeight: 1.15, maxWidth: 1000 }}>
             Advocacia de família, sucessões e patrimônio em São Paulo
           </div>
           <div style={{ fontSize: 26, color: "#cba65b" }}>Dra. Cristiane Fairbanks · OAB/SP 274.480 · Mais de 20 anos de experiência</div>
@@ -40,7 +40,7 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: font ? [{ name: "Fraunces", data: font, weight: 500, style: "normal" }] : undefined,
+      fonts: font ? [{ name: "Libre Baskerville", data: font, weight: 700, style: "normal" }] : undefined,
     },
   );
 }

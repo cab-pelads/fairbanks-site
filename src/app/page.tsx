@@ -57,7 +57,7 @@ function AreaBlock({ cat, className }: { cat: ServiceCategory; className?: strin
   const items = services.filter((s) => s.category === cat);
   return (
     <div className={cn("rounded-3xl border border-line bg-white p-7 sm:p-8", className)}>
-      <h3 className="font-display text-2xl font-medium text-plum-900">{categories[cat].label}</h3>
+      <h3 className="font-display text-2xl font-bold text-plum-900">{categories[cat].label}</h3>
       <p className="mt-2 text-pretty text-sm text-muted">{categories[cat].description}</p>
       <ul className="mt-5">
         {items.map((s) => (
@@ -94,7 +94,7 @@ export default function HomePage() {
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">
               {site.founder.honorific} · {site.founder.oab}
             </p>
-            <h1 className="font-display text-balance text-4xl font-medium leading-[1.05] text-plum-900 sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-balance text-4xl font-bold leading-[1.1] text-plum-900 sm:text-[2.75rem] lg:text-[3.25rem]">
               Advocacia de família, sucessões e patrimônio em São Paulo
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink/80 sm:text-xl">
@@ -142,7 +142,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 lg:justify-end">
             <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">Presença em</span>
             {mentions.map((m) => (
-              <span key={m} className="font-display text-lg font-medium text-ink/45">
+              <span key={m} className="font-display text-lg font-bold text-ink/45">
                 {m}
               </span>
             ))}

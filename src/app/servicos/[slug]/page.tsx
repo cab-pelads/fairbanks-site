@@ -168,7 +168,7 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
             ))}
 
             <section id="quando-procurar" className="not-prose scroll-mt-24 rounded-2xl bg-sand p-6 sm:p-8">
-              <h2 className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">Quando procurar a advogada?</h2>
+              <h2 className="font-display text-balance text-2xl font-bold text-plum-900 sm:text-3xl">Quando procurar a advogada?</h2>
               <p className="mt-2 text-sm text-muted">Sinais de que é hora de uma consulta sobre {service.shortTitle.toLowerCase()}.</p>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {service.signals.map((item) => (
@@ -181,7 +181,7 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
             </section>
 
             <section id="erros-comuns" className="not-prose scroll-mt-24 rounded-2xl border border-line bg-white p-6 sm:p-8">
-              <h2 className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">Erros comuns que vemos nesses casos</h2>
+              <h2 className="font-display text-balance text-2xl font-bold text-plum-900 sm:text-3xl">Erros comuns que vemos nesses casos</h2>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {service.mistakes.map((item) => (
                   <li key={item} className="flex gap-3 text-sm leading-relaxed text-ink/85">
@@ -207,7 +207,7 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
             <div className="space-y-6 lg:sticky lg:top-24">
               <div className="rounded-2xl bg-plum-900 p-6 text-white">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">Fale com a advogada</p>
-                <p className="mt-3 font-display text-2xl font-medium leading-snug">
+                <p className="mt-3 font-display text-2xl font-bold leading-snug">
                   Agende uma consulta sobre {service.shortTitle.toLowerCase()}
                 </p>
                 <p className="mt-3 text-sm text-white/75">
@@ -268,7 +268,7 @@ export default async function ServicePage({ params }: PageProps<"/servicos/[slug
         <section aria-labelledby="posts-title" className="bg-ivory">
           <div className="container-site py-16">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <h2 id="posts-title" className="font-display text-balance text-2xl font-medium text-plum-900 sm:text-3xl">
+              <h2 id="posts-title" className="font-display text-balance text-2xl font-bold text-plum-900 sm:text-3xl">
                 Conteúdo sobre {service.shortTitle.toLowerCase()}
               </h2>
               <Link href="/blog/" className="inline-flex items-center gap-1 text-sm font-semibold text-plum-800 hover:text-plum-900">

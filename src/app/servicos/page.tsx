@@ -58,7 +58,7 @@ export default function ServicosPage() {
           <div className="container-site grid gap-8 py-16 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">{String(i + 1).padStart(2, "0")}</p>
-              <h2 id={`cat-${cat}`} className="mt-2 font-display text-balance text-3xl font-medium text-plum-900">
+              <h2 id={`cat-${cat}`} className="mt-2 font-display text-balance text-3xl font-bold text-plum-900">
                 {categories[cat].label}
               </h2>
               <p className="mt-3 max-w-sm text-pretty text-muted">{categories[cat].description}</p>

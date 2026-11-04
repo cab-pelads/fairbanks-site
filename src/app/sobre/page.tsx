@@ -102,7 +102,7 @@ export default function SobrePage() {
           ].map(([k, v]) => (
             <div key={k}>
               <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">{k}</dt>
-              <dd className="mt-1 font-display text-xl font-medium text-plum-900">{v}</dd>
+              <dd className="mt-1 font-display text-xl font-bold text-plum-900">{v}</dd>
             </div>
           ))}
         </dl>

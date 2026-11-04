@@ -5,4 +5,4 @@ São Paulo, SP, Brasil
 
 /* TECNOLOGIA */
 Next.js, React, Tailwind CSS
-Fontes: Fraunces e Inter
+Fontes: Libre Baskerville e Inter

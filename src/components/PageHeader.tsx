@@ -23,7 +23,7 @@ export function PageHeader({ crumbs, eyebrow, title, lead, children, aside, clas
             {eyebrow && (
               <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">{eyebrow}</p>
             )}
-            <h1 className="font-display text-balance text-4xl font-medium leading-[1.08] text-plum-900 sm:text-5xl">{title}</h1>
+            <h1 className="font-display text-balance text-3xl font-bold leading-[1.15] text-plum-900 sm:text-4xl lg:text-[2.75rem]">{title}</h1>
             <span className="mt-6 block h-0.5 w-16 bg-gold-500" aria-hidden />
             {lead}
             {children}
