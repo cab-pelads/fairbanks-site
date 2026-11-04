@@ -85,15 +85,13 @@ export default function HomePage() {
       {/* Hero */}
       <section className="bg-ivory lg:grid lg:grid-cols-[57fr_43fr] lg:items-stretch">
         <div className="relative flex items-center overflow-hidden px-4 py-16 sm:px-6 lg:py-20 lg:pl-[max(1.5rem,calc((100vw-76rem)/2+0.5rem))] lg:pr-12">
-          {/* Fundo: brilho quente junto à faixa vinho + linhas na inclinação do "F" do logo */}
+          {/* Fundo: duas manchas quentes sutis, canto superior direito e inferior esquerdo */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0"
             style={{
               backgroundImage:
-                "radial-gradient(ellipse 60% 70% at 100% 55%, rgba(184,138,70,0.22), rgba(184,138,70,0) 70%), repeating-linear-gradient(115deg, rgba(61,24,46,0.07) 0 1px, transparent 1px 26px)",
-              WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 55%)",
-              maskImage: "linear-gradient(to right, transparent 0%, black 55%)",
+                "radial-gradient(circle 420px at 100% 0%, rgba(184,138,70,0.13), rgba(184,138,70,0) 70%), radial-gradient(circle 420px at 0% 100%, rgba(184,138,70,0.13), rgba(184,138,70,0) 70%)",
             }}
           />
           <div className="relative max-w-2xl">
