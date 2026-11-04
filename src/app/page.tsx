@@ -44,12 +44,6 @@ const homeFaq = [
   },
 ];
 
-const trust = [
-  { label: "Inscrição", value: site.founder.oab },
-  { label: "Formação", value: "Doutorado PUC-SP" },
-  { label: "Experiência", value: "Mais de 20 anos" },
-  { label: "Atuação", value: "São Paulo e online" },
-];
 
 const mentions = ["Folha de S.Paulo", "Nova Brasil", "PUC-SP", "Unifesp"];
 
@@ -131,25 +125,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Faixa de confiança */}
+      {/* Linha de credencial e presença */}
       <section aria-label="Credenciais" className="border-y border-line bg-white">
-        <div className="container-site flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:justify-between">
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-4">
-            {trust.map((t) => (
-              <div key={t.label}>
-                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">{t.label}</dt>
-                <dd className="mt-0.5 text-sm font-semibold text-plum-900">{t.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 lg:justify-end">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">Presença em</span>
-            {mentions.map((m) => (
-              <span key={m} className="font-display text-lg font-bold text-ink/45">
-                {m}
+        <div className="container-site flex flex-col gap-3 py-5 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-semibold text-plum-900">
+            <span className="mr-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">OAB/SP</span>
+            274.480
+          </p>
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.16em]">Presença em</span>
+            {mentions.map((m, i) => (
+              <span key={m} className="flex items-center gap-x-3">
+                {i > 0 && <span aria-hidden className="text-line">|</span>}
+                <span className="font-medium text-ink/70">{m}</span>
               </span>
             ))}
-          </div>
+          </p>
         </div>
       </section>
 
