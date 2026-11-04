@@ -111,4 +111,5 @@ Rascunhos dos três primeiros temas existem no histórico do Git (commit `c5c358
 
 - Confirmar a data de lançamento dos dossiês Florestan Fernandes e Newton Sucupira (hoje com a data de publicação no site anterior, 06/05/2026).
 - Obter o link do áudio ou vídeo da participação no Jornal Nova Manhã, se existir.
+- **Folha de S.Paulo (05/02/2026):** o texto da reportagem disponível não cita a Dra. Cristiane. Confirmar com o escritório se ela foi entrevistada na versão original. Até lá, o post descreve a matéria como leitura relacionada, sem afirmar participação.
 - Definir se o escritório quer receber e-mail a cada publicação (pode ser feito com o RSS em um serviço como o Zapier ou o Make).
