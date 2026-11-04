@@ -130,7 +130,9 @@ export function getAllPosts({ includeDrafts = false } = {}): Post[] {
       })
       .sort((a, b) => (a.date < b.date ? 1 : -1));
   }
-  return includeDrafts ? cache : cache.filter((p) => !p.draft);
+  if (includeDrafts) return cache;
+  const today = new Date().toISOString().slice(0, 10);
+  return cache.filter((p) => !p.draft && p.date <= today);
 }
 
 function toIsoDate(v: unknown): string {

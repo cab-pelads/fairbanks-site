@@ -13,7 +13,13 @@ Cada publicação é um arquivo Markdown em `content/blog/<slug>.md`, com um cab
 | `/blog/<slug>/` | A publicação, com autor, data, tempo de leitura, FAQ, áreas relacionadas e "Leia também" |
 | `/feed.xml` | RSS com as 30 publicações mais recentes |
 
+A página do blog tem busca por texto (sem distinguir acentos; procura em título, resumo, tags, áreas e corpo), filtro por tipo e filtro por área, tudo no navegador, sem servidor. Publicações com data futura só aparecem depois da data, desde que o site seja republicado naquele dia (ver "Agendamento").
+
 Além disso, a home mostra os 3 últimos artigos/notícias e as 4 últimas aparições na mídia, e cada página de área de atuação mostra as publicações marcadas com aquela área.
+
+## Agendamento
+
+Para programar uma publicação, basta salvar o arquivo com a data desejada no campo `date` e `draft: false`. O build ignora posts com data futura. Como o site é estático, ele precisa ser reconstruído na data: configure na hospedagem um "deploy hook" chamado por um agendador diário (Cloudflare Pages e Vercel oferecem o hook; o disparo pode vir de um cron do GitHub Actions ou do próprio painel).
 
 ## Três formas de publicar
 

@@ -1,22 +1,49 @@
 import Link from "next/link";
 import { Rss } from "lucide-react";
-import { PostCard } from "@/components/PostCard";
+import { BlogExplorer, type PostSummary } from "@/components/BlogExplorer";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
-import { getAllPosts, getPostsByType, postTypes, type PostType } from "@/lib/blog";
+import { services } from "@/data/services";
+import { coverFor, formatDate, getAllPosts, postTypes, type Post, type PostType } from "@/lib/blog";
 import { absoluteUrl, site } from "@/lib/site";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
-import { cn } from "@/lib/utils";
 
-const tabs: { href: string; label: string; type?: PostType }[] = [
-  { href: "/blog/", label: "Tudo" },
-  { href: "/blog/artigos/", label: "Artigos", type: "artigo" },
-  { href: "/blog/noticias/", label: "Notícias", type: "noticia" },
-  { href: "/blog/na-midia/", label: "Na mídia", type: "midia" },
-];
+function normalize(s: string) {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
+}
+
+function toSummary(p: Post): PostSummary {
+  const bodyText = p.body
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[#*_>`|-]/g, " ")
+    .replace(/\s+/g, " ")
+    .slice(0, 6000);
+  const areaLabels = p.areas.map((a) => services.find((s) => s.slug === a)?.shortTitle ?? "");
+  return {
+    slug: p.slug,
+    type: p.type,
+    title: p.title,
+    description: p.description,
+    date: p.date,
+    dateLabel: formatDate(p.date),
+    cover: p.cover ?? coverFor(p.areas),
+    coverPosition: p.coverPosition,
+    areas: p.areas,
+    tags: p.tags,
+    outlet: p.outlet,
+    featured: p.featured,
+    readingMinutes: p.readingMinutes,
+    haystack: normalize([p.title, p.description, p.outlet ?? "", postTypes[p.type].label, ...p.tags, ...areaLabels, bodyText].join(" ")),
+  };
+}
 
 export function BlogListing({ type }: { type?: PostType }) {
-  const posts = type ? getPostsByType(type) : getAllPosts();
+  const all = getAllPosts();
+  const posts = all.map(toSummary);
   const path = type ? `/blog/${postTypes[type].slug}/` : "/blog/";
   const title = type ? postTypes[type].plural : "Blog";
   const description = type
@@ -25,8 +52,9 @@ export function BlogListing({ type }: { type?: PostType }) {
   const crumbs = type
     ? [{ name: "Início", path: "/" }, { name: "Blog", path: "/blog/" }, { name: postTypes[type].plural }]
     : [{ name: "Início", path: "/" }, { name: "Blog" }];
-  const featured = posts.filter((p) => p.featured).slice(0, 1);
-  const rest = posts.filter((p) => !featured.includes(p));
+  const usedAreas = new Set(all.flatMap((p) => p.areas));
+  const areas = services.filter((s) => usedAreas.has(s.slug)).map((s) => ({ value: s.slug, label: s.shortTitle }));
+  const types = (Object.keys(postTypes) as PostType[]).map((t) => ({ value: t, label: postTypes[t].plural }));
 
   return (
     <>
@@ -34,7 +62,10 @@ export function BlogListing({ type }: { type?: PostType }) {
         data={graph(
           {
             ...webPageSchema({ path, name: `${title} | ${site.name}`, description, type: "CollectionPage" }),
-            hasPart: posts.slice(0, 20).map((p) => ({ "@type": "BlogPosting", headline: p.title, url: absoluteUrl(`/blog/${p.slug}/`), datePublished: p.date })),
+            hasPart: all
+              .filter((p) => !type || p.type === type)
+              .slice(0, 20)
+              .map((p) => ({ "@type": "BlogPosting", headline: p.title, url: absoluteUrl(`/blog/${p.slug}/`), datePublished: p.date })),
           },
           breadcrumbSchema(crumbs),
         )}
@@ -45,50 +76,21 @@ export function BlogListing({ type }: { type?: PostType }) {
         title={type ? postTypes[type].plural : "Artigos, notícias e imprensa"}
         lead={<p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted">{description}</p>}
       >
-        <nav aria-label="Tipo de publicação" className="mt-8 flex flex-wrap gap-2">
-          {tabs.map((tab) => {
-            const active = tab.type === type;
-            return (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "rounded-full border px-4 py-2 text-sm font-semibold transition-colors",
-                  active ? "border-plum-900 bg-plum-900 text-white" : "border-line bg-white text-plum-900 hover:border-plum-900/40",
-                )}
-              >
-                {tab.label}
-              </Link>
-            );
-          })}
-          <a href="/feed.xml" className="ml-auto inline-flex items-center gap-1.5 self-center text-sm text-muted hover:text-plum-900">
+        <nav aria-label="Seções do blog" className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          {[{ href: "/blog/", label: "Tudo", active: !type }, ...types.map((t) => ({ href: `/blog/${postTypes[t.value].slug}/`, label: t.label, active: t.value === type }))].map((l) => (
+            <Link key={l.href} href={l.href} aria-current={l.active ? "page" : undefined} className={l.active ? "font-semibold text-plum-900 underline decoration-gold-500 underline-offset-8" : "text-muted hover:text-plum-900"}>
+              {l.label}
+            </Link>
+          ))}
+          <a href="/feed.xml" className="inline-flex items-center gap-1.5 text-muted hover:text-plum-900">
             <Rss className="size-4 text-gold-500" aria-hidden /> RSS
           </a>
         </nav>
       </PageHeader>
 
       <section className="bg-ivory">
-        <div className="container-site py-16">
-          {posts.length === 0 ? (
-            <p className="text-muted">Ainda não há publicações nesta seção. Volte em breve ou veja <Link href="/blog/" className="underline">todo o conteúdo</Link>.</p>
-          ) : (
-            <>
-              {featured.length > 0 && (
-                <div className="mb-10">
-                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">Em destaque</p>
-                  <PostCard post={featured[0]} className="lg:grid lg:grid-cols-2 [&>a]:lg:aspect-auto [&>a]:lg:min-h-72" />
-                </div>
-              )}
-              <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {rest.map((p) => (
-                  <li key={p.slug}>
-                    <PostCard post={p} />
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+        <div className="container-site py-12">
+          <BlogExplorer posts={posts} initialType={type} types={types} areas={areas} />
         </div>
       </section>
     </>
