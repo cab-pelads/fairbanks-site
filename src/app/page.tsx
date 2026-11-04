@@ -86,8 +86,14 @@ export default function HomePage() {
       <section className="bg-ivory lg:grid lg:grid-cols-[57fr_43fr] lg:items-stretch">
         <div className="flex items-center px-4 py-16 sm:px-6 lg:py-20 lg:pl-[max(1.5rem,calc((100vw-76rem)/2+0.5rem))] lg:pr-12">
           <div className="max-w-2xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-gold-600 sm:text-[15px]">
-              {site.founder.honorific} · {site.founder.oab}
+            <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="inline-flex items-center gap-3">
+                <span aria-hidden className="h-px w-8 bg-gold-500" />
+                <span className="font-display text-lg font-bold text-plum-900 sm:text-xl">{site.founder.honorific}</span>
+              </span>
+              <span className="inline-flex items-center rounded-full border border-gold-500 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-gold-600">
+                {site.founder.oab}
+              </span>
             </p>
             <h1 className="font-display text-balance text-4xl font-bold leading-[1.1] text-plum-900 sm:text-[2.75rem] lg:text-[3rem]">
               Advocacia de família, sucessões e patrimônio em São Paulo
