@@ -9,6 +9,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import readingTime from "reading-time";
 import { services } from "@/data/services";
+import { areaImages } from "@/lib/areaImages";
 
 export type PostType = "artigo" | "noticia" | "midia";
 
@@ -33,24 +34,9 @@ export const postTypes: Record<PostType, { label: string; plural: string; slug: 
   },
 };
 
-const defaultCovers: Record<string, string> = {
-  "direito-de-familia": "/images/areas/familia.jpg",
-  "casamento-uniao-estavel-regime-de-bens-pacto-antenupcial": "/images/areas/familia.jpg",
-  "divorcio-e-partilha": "/images/areas/divorcio.jpg",
-  "guarda-e-convivencia-parental": "/images/areas/guarda.jpg",
-  "pensao-alimenticia": "/images/areas/guarda.jpg",
-  "alienacao-parental-e-abandono-afetivo": "/images/areas/guarda.jpg",
-  "direito-dos-animais-e-guarda-pet": "/images/areas/pet.jpg",
-  "inventario-e-sucessoes": "/images/areas/sucessoes.jpg",
-  "planejamento-sucessorio": "/images/areas/sucessoes.jpg",
-  "direito-imobiliario": "/images/areas/imobiliario.jpg",
-  "locacao-de-imoveis": "/images/areas/imobiliario.jpg",
-  "direito-educacional": "/images/areas/educacional.jpg",
-};
-
 /** Capa padrão de um post sem imagem, escolhida pela primeira área relacionada. */
 export function coverFor(areas: string[]) {
-  for (const a of areas) if (defaultCovers[a]) return defaultCovers[a];
+  for (const a of areas) if (areaImages[a]) return areaImages[a].src;
   return "/images/areas/familia.jpg";
 }
 

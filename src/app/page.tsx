@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { ButtonLink } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FounderSection } from "@/components/FounderSection";
@@ -12,6 +12,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { categories, services, type ServiceCategory } from "@/data/services";
 import { faqSchema, graph, servicesListSchema, webPageSchema } from "@/lib/schema";
 import { site, whatsappLink } from "@/lib/site";
+import { areaImage } from "@/lib/areaImages";
 import { cn } from "@/lib/utils";
 
 const title = "Advocacia de Família, Sucessões e Patrimônio em São Paulo";
@@ -47,28 +48,6 @@ const homeFaq = [
 
 const mentions = ["Folha de S.Paulo", "Nova Brasil", "PUC-SP", "Unifesp"];
 
-function AreaBlock({ cat, className }: { cat: ServiceCategory; className?: string }) {
-  const items = services.filter((s) => s.category === cat);
-  return (
-    <div className={cn("rounded-3xl border border-line bg-white p-7 sm:p-8", className)}>
-      <h3 className="font-display text-2xl font-bold text-plum-900">{categories[cat].label}</h3>
-      <p className="mt-2 text-pretty text-sm text-muted">{categories[cat].description}</p>
-      <ul className="mt-5">
-        {items.map((s) => (
-          <li key={s.slug} className="border-t border-line">
-            <Link
-              href={`/servicos/${s.slug}/`}
-              className="group flex items-center justify-between gap-3 py-3 text-sm font-semibold text-plum-900 hover:text-plum-700"
-            >
-              {s.shortTitle}
-              <ChevronRight className="size-4 shrink-0 text-gold-500 transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export default function HomePage() {
   return (
@@ -134,28 +113,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Áreas de atuação em quatro blocos */}
+      {/* Áreas de atuação */}
       <section aria-labelledby="areas-title" className="bg-ivory">
         <div className="container-site py-20">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Áreas de atuação"
-              title={<span id="areas-title">Direito de família, sucessões, imobiliário e educacional</span>}
-              text="Há mais de 20 anos atuamos em direito de família e sucessões, cível e consumidor, e também em direito educacional. Cada área tem uma página própria com respostas às dúvidas mais comuns."
+              title={<span id="areas-title">Em que podemos ajudar você</span>}
+              text="Há mais de 20 anos atuamos em direito de família e sucessões, cível e consumidor, e também em direito educacional. Escolha a sua situação: cada área tem uma página com respostas diretas às dúvidas mais comuns."
             />
             <Link href="/servicos/" className="inline-flex items-center gap-1 text-sm font-semibold text-plum-800 hover:text-plum-900">
               Todas as áreas
               <ArrowRight className="size-4 text-gold-500" aria-hidden />
             </Link>
           </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-12">
-            <AreaBlock cat="familia" className="lg:col-span-7" />
-            <div className="grid gap-6 lg:col-span-5">
-              <AreaBlock cat="sucessoes" />
-              <AreaBlock cat="patrimonio" />
-              <AreaBlock cat="educacional" />
-            </div>
-          </div>
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((s) => {
+              const img = areaImage(s.slug);
+              return (
+                <li key={s.slug}>
+                  <Link
+                    href={`/servicos/${s.slug}/`}
+                    className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-plum-900 sm:aspect-[4/4.6]"
+                  >
+                    <Image
+                      src={img.src}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      style={{ objectPosition: img.position }}
+                      className={cn(
+                        "object-cover transition-transform duration-200 ease-out group-hover:scale-[1.04]",
+                        img.mirror && "-scale-x-100 group-hover:scale-x-[-1.04] group-hover:scale-y-[1.04]",
+                      )}
+                    />
+                    <span aria-hidden className="absolute inset-0 bg-[linear-gradient(to_top,rgba(42,19,35,0.92)_0%,rgba(42,19,35,0.55)_45%,rgba(42,19,35,0.05)_100%)]" />
+                    <span className="absolute inset-x-0 bottom-0 p-5">
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-400">
+                        {categories[s.category].label}
+                      </span>
+                      <span className="mt-1.5 block text-balance text-lg font-semibold leading-snug text-white">
+                        {s.shortTitle}
+                      </span>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-white/80">
+                        Saiba mais
+                        <ArrowRight className="size-4 text-gold-400 transition-transform duration-200 group-hover:translate-x-1" aria-hidden />
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 
