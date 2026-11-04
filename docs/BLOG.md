@@ -11,7 +11,7 @@ Cada publicação é um arquivo Markdown em `content/blog/<slug>.md`, com um cab
 | `/blog/noticias/` | Só `type: noticia` (mudanças na lei, decisões, novidades) |
 | `/blog/na-midia/` | Só `type: midia` (entrevistas e menções na imprensa) |
 | `/blog/<slug>/` | A publicação, com autor, data, tempo de leitura, FAQ, áreas relacionadas e "Leia também" |
-| `/feed.xml` | RSS com as 30 publicações mais recentes |
+| `/feed.xml` | Feed RSS (sem link visível no site; usado por leitores de feed, automações e rastreadores) |
 
 A página do blog tem busca por texto (sem distinguir acentos; procura em título, resumo, tags, áreas e corpo), filtro por tipo e filtro por área, tudo no navegador, sem servidor. Publicações com data futura só aparecem depois da data, desde que o site seja republicado naquele dia (ver "Agendamento").
 

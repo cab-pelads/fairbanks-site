@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Rss } from "lucide-react";
 import { BlogExplorer, type PostSummary } from "@/components/BlogExplorer";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHeader } from "@/components/PageHeader";
@@ -76,16 +74,6 @@ export function BlogListing({ type }: { type?: PostType }) {
         title={type ? postTypes[type].plural : "Artigos, notícias e imprensa"}
         lead={<p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted">{description}</p>}
       >
-        <nav aria-label="Seções do blog" className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-          {[{ href: "/blog/", label: "Tudo", active: !type }, ...types.map((t) => ({ href: `/blog/${postTypes[t.value].slug}/`, label: t.label, active: t.value === type }))].map((l) => (
-            <Link key={l.href} href={l.href} aria-current={l.active ? "page" : undefined} className={l.active ? "font-semibold text-plum-900 underline decoration-gold-500 underline-offset-8" : "text-muted hover:text-plum-900"}>
-              {l.label}
-            </Link>
-          ))}
-          <a href="/feed.xml" className="inline-flex items-center gap-1.5 text-muted hover:text-plum-900">
-            <Rss className="size-4 text-gold-500" aria-hidden /> RSS
-          </a>
-        </nav>
       </PageHeader>
 
       <section className="bg-ivory">

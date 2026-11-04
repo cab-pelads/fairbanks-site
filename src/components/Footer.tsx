@@ -78,11 +78,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a href="/feed.xml" className="hover:text-white hover:underline">
-                  RSS do blog
-                </a>
-              </li>
             </ul>
           </div>
 
