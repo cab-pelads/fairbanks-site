@@ -97,6 +97,11 @@ export default function HomePage() {
               sensíveis envolvendo família, patrimônio, sucessão e reorganização de vínculos, há
               mais de 20 anos.
             </p>
+            <p className="mt-4 text-pretty text-base leading-relaxed text-ink/70 sm:text-lg">
+              Divórcio, guarda, pensão, inventário, planejamento sucessório e imóveis, com
+              prioridade para acordos e procedimentos em cartório. Atendimento presencial na Vila
+              Clementino, em São Paulo, ou por videoconferência.
+            </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={whatsappLink("Olá, gostaria de agendar uma consulta.")} variant="primary">
                 <MessageCircle className="size-4" aria-hidden />
