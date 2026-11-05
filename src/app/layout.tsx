@@ -63,7 +63,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className="h-full">
+    <html lang="pt-BR" className="h-full" data-scroll-behavior="smooth">
       <body className="flex min-h-full flex-col">
         <JsonLd data={graph(organizationSchema(), personSchema(), websiteSchema())} />
         <Header />
